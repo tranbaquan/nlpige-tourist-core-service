@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nlpige.iml" filepath="$PROJECT_DIR$/.idea/modules/nlpige.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nlpige_main.iml" filepath="$PROJECT_DIR$/.idea/modules/nlpige_main.iml" group="nlpige" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/nlpige_test.iml" filepath="$PROJECT_DIR$/.idea/modules/nlpige_test.iml" group="nlpige" />
+    </modules>
+  </component>
+</project>
