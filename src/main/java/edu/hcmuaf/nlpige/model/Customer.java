@@ -1,7 +1,15 @@
 package edu.hcmuaf.nlpige.model;
 
+import edu.hcmuaf.nlpige.exception.InvalidEmailException;
+import edu.hcmuaf.nlpige.exception.InvalidPasswrodException;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import java.time.LocalDateTime;
+
+@Data
+@AllArgsConstructor
 public abstract class Customer {
     @Field(value = "firstName")
     protected String firstName;
@@ -17,14 +25,24 @@ public abstract class Customer {
     protected Address address;
     @Field(value = "languages")
     protected Languages languages;
+    @Field(value = "password")
+    protected String password;
+    @Field(value = "OTP")
+    protected String otp;
+    @Field(value = "expiredOTPTime")
+    protected LocalDateTime expiredOTPTime;
 
-    public Customer(String firstName, String lastName, String personalID, String email, Gender gender, Address address, Languages languages) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.personalID = personalID;
-        this.email = email;
-        this.gender = gender;
-        this.address = address;
-        this.languages = languages;
+    protected Customer() {
+    }
+
+
+    public boolean verify() throws InvalidEmailException, InvalidPasswrodException {
+        if (!UserInformationVerifier.verifyEmail(email)) {
+            throw new InvalidEmailException();
+        }
+        if (!UserInformationVerifier.verifyPassword(password)) {
+            throw new InvalidPasswrodException();
+        }
+        return true;
     }
 }

@@ -1,5 +1,11 @@
 package edu.hcmuaf.nlpige.model;
 
+
 public enum Gender {
-    male
+    MALE, FEMALE, OTHER;
+
+    @Override
+    public String toString() {
+        return "Gender{}";
+    }
 }
