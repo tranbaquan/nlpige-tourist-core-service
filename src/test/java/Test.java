@@ -1,6 +1,6 @@
 import com.google.gson.Gson;
-import edu.hcmuaf.nlpige.model.HashingUtils;
-import edu.hcmuaf.nlpige.model.ResetPasswordParam;
+import com.nlpige.tourist.utils.HashingUtils;
+import com.nlpige.tourist.utils.ResetPasswordParam;
 
 /**
  * Created by IntelliJ on Wednesday, 12 December, 2018 at 02:01.
