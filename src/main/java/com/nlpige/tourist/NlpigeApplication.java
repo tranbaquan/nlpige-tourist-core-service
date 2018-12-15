@@ -1,4 +1,4 @@
-package edu.hcmuaf.nlpige;
+package com.nlpige.tourist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

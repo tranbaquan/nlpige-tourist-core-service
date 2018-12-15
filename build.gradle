@@ -15,7 +15,7 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
-group = 'edu.hcmuaf'
+group = 'com.nlpige.tourist'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
@@ -25,8 +25,12 @@ repositories {
 
 
 dependencies {
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.0.4.RELEASE'
-    compileOnly("org.projectlombok:lombok:1.16.10")
+    compileOnly("org.projectlombok:lombok:1.18.4")
     compile 'org.springframework.boot:spring-boot-starter-data-mongodb:1.3.2.RELEASE'
+    compile 'de.mkammerer:argon2-jvm:2.5'
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
+    compile group: 'javax.mail', name: 'mail', version: '1.4.7'
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+
 }
