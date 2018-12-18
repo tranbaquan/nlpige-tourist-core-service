@@ -10,7 +10,7 @@ import static de.mkammerer.argon2.Argon2Factory.create;
  *
  * @author Joseph Maria
  */
-public class HashingUtils {
+public class Hashing {
     private static final Argon2 ARGON2 = create(Argon2Types.ARGON2id);
 
     public static final String hashPassword(char[] password) {

@@ -2,7 +2,7 @@ package com.nlpige.tourist.core.customer.model;
 
 import com.nlpige.tourist.exception.InvalidEmailException;
 import com.nlpige.tourist.exception.InvalidPasswordException;
-import com.nlpige.tourist.utils.HashingUtils;
+import com.nlpige.tourist.utils.Hashing;
 import com.nlpige.tourist.utils.UserInformationVerifier;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -48,7 +48,7 @@ public abstract class Customer {
     }
 
     public void encryptPassword() {
-        password = HashingUtils.hashPassword(password.toCharArray());
+        password = Hashing.hashPassword(password.toCharArray());
     }
 
     public void secureData(){
