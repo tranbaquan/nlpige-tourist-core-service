@@ -1,0 +1,11 @@
+package com.nlpige.tourist.core.tour.service;
+
+import com.nlpige.tourist.core.tour.model.Tour;
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+import java.util.List;
+
+public interface TourRepository extends MongoRepository<Tour, Integer> {
+    List<Tour> findByTraveler_Email(String email);
+    List<Tour> findByTourGuide_Email(String email);
+}

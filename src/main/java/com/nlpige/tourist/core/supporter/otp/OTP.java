@@ -14,13 +14,10 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Document(collection = "otp")
 public class OTP {
-    @Id
+
     private String email;
-    @Field(value = "otp")
     private String otp;
-    @Field(value = "expireTime")
     private LocalDateTime expireTime;
-    @Field(value = "identifier")
     private String identifier;
 
     public OTP(String email, String otp) {
