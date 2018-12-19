@@ -3,12 +3,12 @@ package com.nlpige.tourist.data;
 
 import com.nlpige.tourist.config.SpringMongoConfig;
 import com.nlpige.tourist.core.collaborator.model.Collaborator;
+import com.nlpige.tourist.core.collaborator.model.TourGuideType;
 import com.nlpige.tourist.core.customer.model.Address;
 import com.nlpige.tourist.core.customer.model.Gender;
 import com.nlpige.tourist.core.customer.model.Languages;
 import com.nlpige.tourist.core.tour.model.Place;
 import com.nlpige.tourist.core.tour.model.Tour;
-import com.nlpige.tourist.core.traveler.model.TourGuideType;
 import com.nlpige.tourist.core.traveler.model.Traveler;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
