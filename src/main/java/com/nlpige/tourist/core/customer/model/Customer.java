@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.lang.NonNull;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -16,25 +17,19 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class Customer {
-    @Field(value = "firstName")
+    @NonNull
     protected String firstName;
-    @Field(value = "lastName")
+    @NonNull
     protected String lastName;
-    @Field(value = "personalID")
     protected String personalID;
-    @Field(value = "email")
+    @NonNull
     protected String email;
-    @Field("gender")
     protected Gender gender;
-    @Field(value = "dob")
     protected LocalDate dob;
-    @Field(value = "address")
     protected Address address;
     @Field(value = "otherLanguages")
     protected Languages languages;
-    @Field(value = "password")
     protected String password;
-    @Field(value = "activeDate")
     private LocalDateTime activeDate;
 
     public boolean verify() {

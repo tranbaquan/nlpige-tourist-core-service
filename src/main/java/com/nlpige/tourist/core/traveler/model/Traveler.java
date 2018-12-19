@@ -7,7 +7,6 @@ import com.nlpige.tourist.core.customer.model.Languages;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -16,7 +15,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Document(collection = "traveler")
 public class Traveler extends Customer {
-    @Field(value = "passport")
     private String passport;
 
     public Traveler(String firstName, String lastName, String personalID, String email, Gender gender, LocalDate dob,
