@@ -20,6 +20,8 @@ public class OTP {
     private String otp;
     @Field(value = "expireTime")
     private LocalDateTime expireTime;
+    @Field(value = "identifier")
+    private String identifier;
 
     public OTP(String email, String otp) {
         this.email = email;
