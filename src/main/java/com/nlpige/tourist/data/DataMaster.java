@@ -17,18 +17,25 @@ import java.time.LocalDateTime;
  * Created by IntelliJ on Tuesday, 11 December, 2018 at 23:54.
  *
  * @author Joseph Maria
+ * @author Tran Ba Quan
  */
 public class DataMaster {
     public void init() {
         Languages languages = new Languages("English");
-        Traveler traveler = new Traveler("Quan", "Trần Bá", "231101668",
+        Traveler traveler1 = new Traveler("Quan", "Trần Bá", "231101668",
                 "tranbaquan.tbq@gmail.com", Gender.MALE, LocalDate.of(1997,11,02),
+                new Address("Viet Nam", "KTX Khu B DHQG"), languages, "123456",
+                LocalDateTime.of(2018,12,14,17,30), "VN1234567");
+
+        Traveler traveler2 = new Traveler("Thiên", "Đinh Chí", "123456789",
+                "dinhchithien@gmail.com", Gender.MALE, LocalDate.of(1997,11,11),
                 new Address("Viet Nam", "KTX Khu B DHQG"), languages, "123456",
                 LocalDateTime.of(2018,12,14,17,30), "VN1234567");
 
         ApplicationContext context = new AnnotationConfigApplicationContext(SpringMongoConfig.class);
         MongoOperations mongoOperations = (MongoOperations) context.getBean("mongoTemplate");
 
-        mongoOperations.save(traveler);
+        mongoOperations.save(traveler1);
+        mongoOperations.save(traveler2);
     }
 }

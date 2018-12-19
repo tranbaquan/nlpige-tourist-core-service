@@ -15,28 +15,33 @@ public class TravelerAPI {
     TravelerService travelerService;
 
     @PostMapping
-    public Traveler create(@RequestBody Traveler traveler) {
-        traveler = travelerService.create(traveler);
-        traveler.secureData();
-        return traveler;
+    public Traveler createTraveler(@RequestBody Traveler traveler) {
+        return travelerService.createTraveler(traveler);
+    }
+
+    @GetMapping
+    public Traveler getTraveler(@RequestHeader String email) {
+        return travelerService.getTraveler(email);
     }
 
     @PostMapping(value = "login")
     public Traveler login(@RequestBody Traveler traveler) {
-        traveler = travelerService.login(traveler);
-        traveler.secureData();
-        return traveler;
+        return travelerService.login(traveler);
     }
 
     @GetMapping(value = "otp")
-    public OTP getOTP(@RequestHeader String email, @RequestHeader String requestType){
+    public void getOTP(@RequestHeader String email, @RequestHeader String requestType) {
         OTP otp = travelerService.generateOTP(email);
         SendingEmail.sendEmail(email, requestType, "Your OTP: " + otp.getOtp());
-        return otp;
     }
 
     @PostMapping(value = "otp")
     public boolean validateOTP(@RequestBody OTP otp) {
         return travelerService.validateOTP(otp);
+    }
+
+    @PostMapping(value = "password/change")
+    public Traveler changePassword(@RequestHeader String email, @RequestHeader String newPassword, @RequestHeader String identifier) {
+        return travelerService.changePassword(email, newPassword, identifier);
     }
 }

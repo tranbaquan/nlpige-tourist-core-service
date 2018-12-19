@@ -13,21 +13,12 @@ public class OTPService {
     @Autowired
     private OTPRepository otpRepo;
 
-    public OTP save(OTP otp) {
+    public OTP saveOTP(OTP otp) {
         otp.setExpireTime(LocalDateTime.now().plusMinutes(10));
         return otpRepo.save(otp);
     }
 
-    public boolean isCorectOTP(OTP otp) {
-        OTP system = getOTP(otp.getEmail());
-        boolean b = validateOTP(system, otp.getOtp());
-        if(b) {
-            otpRepo.deleteById(otp.getEmail());
-        }
-        return b;
-    }
-
-    private OTP getOTP(String email) {
+    public OTP getOTP(String email) {
         Optional<OTP> otp =otpRepo.findById(email);
 
         if(!otp.isPresent()) {
@@ -36,10 +27,19 @@ public class OTPService {
         return otp.get();
     }
 
+    private void deleteOTP(OTP otp) {
+        otpRepo.deleteById(otp.getEmail());
+    }
+
+    public boolean isCorrectOTP(OTP otp) {
+        OTP system = getOTP(otp.getEmail());
+        return validateOTP(system, otp.getOtp());
+    }
+
     private boolean validateOTP(OTP systemOtp, String userOtp) {
         if(systemOtp == null) {
             throw new NLPigeException();
         }
-        return systemOtp.getExpireTime().isAfter(LocalDateTime.now()) && systemOtp.getOtp().equals(userOtp);
+        return systemOtp.getExpireTime().isAfter(LocalDateTime.now()) && systemOtp.getOtp().equals(userOtp) && systemOtp.getIdentifier().equals(userOtp);
     }
 }
