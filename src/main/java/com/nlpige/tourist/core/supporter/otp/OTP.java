@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Document(collection = "otp")
 public class OTP {
+
     private String email;
     private String otp;
     private LocalDateTime expireTime;

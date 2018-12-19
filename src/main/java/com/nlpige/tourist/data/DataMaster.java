@@ -136,6 +136,7 @@ public class DataMaster {
 
         mongoOperations.save(tour1);
         mongoOperations.save(tour2);
+
     }
 
 }
