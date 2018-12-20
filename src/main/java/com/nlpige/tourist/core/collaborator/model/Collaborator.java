@@ -4,11 +4,9 @@ import com.nlpige.tourist.core.customer.model.Address;
 import com.nlpige.tourist.core.customer.model.Customer;
 import com.nlpige.tourist.core.customer.model.Gender;
 import com.nlpige.tourist.core.customer.model.Languages;
-import com.nlpige.tourist.core.traveler.model.TourGuideType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
