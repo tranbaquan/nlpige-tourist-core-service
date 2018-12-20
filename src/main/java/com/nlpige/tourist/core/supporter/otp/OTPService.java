@@ -14,14 +14,12 @@ public class OTPService {
     private OTPRepository otpRepo;
 
     public OTP saveOTP(OTP otp) {
-        otp.setExpireTime(LocalDateTime.now().plusMinutes(10));
+        otpRepo.deleteAllByEmail(otp.getEmail());
         return otpRepo.save(otp);
     }
 
     public OTP getOTP(String email) {
-
         Optional<OTP> otp =otpRepo.findByEmail(email);
-
 
         if(!otp.isPresent()) {
             throw new NotFoundException();
@@ -29,21 +27,23 @@ public class OTPService {
         return otp.get();
     }
 
-    private void deleteOTP(OTP otp) {
-
+    public void deleteOTP(OTP otp) {
         otpRepo.deleteByEmail(otp.getEmail());
-
     }
 
     public boolean isCorrectOTP(OTP otp) {
         OTP system = getOTP(otp.getEmail());
-        return validateOTP(system, otp.getOtp());
+        boolean b = validateOTP(system, otp.getOtp());
+        if(b) {
+            saveOTP(otp);
+        }
+        return b;
     }
 
     private boolean validateOTP(OTP systemOtp, String userOtp) {
         if(systemOtp == null) {
             throw new NLPigeException();
         }
-        return systemOtp.getExpireTime().isAfter(LocalDateTime.now()) && systemOtp.getOtp().equals(userOtp) && systemOtp.getIdentifier().equals(userOtp);
+        return systemOtp.getExpireTime().isAfter(LocalDateTime.now()) && systemOtp.getOtp().equals(userOtp) && systemOtp.getIdentifier() == null;
     }
 }

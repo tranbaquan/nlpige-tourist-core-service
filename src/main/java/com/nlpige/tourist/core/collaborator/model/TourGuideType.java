@@ -1,4 +1,4 @@
-package com.nlpige.tourist.core.traveler.model;
+package com.nlpige.tourist.core.collaborator.model;
 
 public enum TourGuideType {
     PROFESSOR("Professor"),
