@@ -32,6 +32,7 @@ public class CollaboratorService {
     public Collaborator login(Collaborator collaborator) {
         UserInformationVerifier.verifyCustomer(collaborator);
         Optional<Collaborator> data = collaboratorRepo.findByEmail(collaborator.getEmail());
+
         if (!data.isPresent()) {
             throw new NotFoundException();
         }
