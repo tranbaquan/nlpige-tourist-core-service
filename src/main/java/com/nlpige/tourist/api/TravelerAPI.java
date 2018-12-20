@@ -30,9 +30,10 @@ public class TravelerAPI {
     }
 
     @GetMapping(value = "otp")
-    public void getOTP(@RequestHeader String email, @RequestHeader String requestType) {
+    public OTP getOTP(@RequestHeader String email, @RequestHeader String requestType) {
         OTP otp = travelerService.generateOTP(email);
         SendingEmail.sendEmail(email, requestType, "Your OTP: " + otp.getOtp());
+        return otp;
     }
 
     @PostMapping(value = "otp")
