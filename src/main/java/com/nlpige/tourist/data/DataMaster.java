@@ -118,7 +118,7 @@ public class DataMaster {
         mongoOperations.save(place1);
         mongoOperations.save(place2);
 
-        Tour tour1 = new Tour(
+        Tour tour1 = new Tour("tour1",
                place1,
                traveler1,
                collaborator1,
@@ -126,7 +126,7 @@ public class DataMaster {
                190
         );
 
-        Tour tour2 = new Tour(
+        Tour tour2 = new Tour("tour2",
                 place2,
                 traveler2,
                 collaborator2,

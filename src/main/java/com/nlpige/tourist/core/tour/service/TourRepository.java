@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
 
-public interface TourRepository extends MongoRepository<Tour, Integer> {
+public interface TourRepository extends MongoRepository<Tour, String> {
     List<Tour> findByTraveler_Email(String email);
     List<Tour> findByTourGuide_Email(String email);
 }

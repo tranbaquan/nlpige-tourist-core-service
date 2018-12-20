@@ -19,9 +19,7 @@ public class OTPService {
     }
 
     public OTP getOTP(String email) {
-
         Optional<OTP> otp =otpRepo.findByEmail(email);
-
 
         if(!otp.isPresent()) {
             throw new NotFoundException();
@@ -30,9 +28,7 @@ public class OTPService {
     }
 
     private void deleteOTP(OTP otp) {
-
         otpRepo.deleteByEmail(otp.getEmail());
-
     }
 
     public boolean isCorrectOTP(OTP otp) {
