@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -81,7 +82,7 @@ public class TravelerService {
     public Traveler changePassword(String email, String newPassword, String identifier) {
         OTP otp = otpService.getOTP(email);
         Optional<Traveler> travelerData = travelerRepo.findByEmail(email);
-        if (!travelerData.isPresent() || !otp.getIdentifier().equals(identifier)) {
+        if (!travelerData.isPresent() || !Objects.equals(otp.getIdentifier(), identifier)) {
             throw new NLPigeException();
         }
 

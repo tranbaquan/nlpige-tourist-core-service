@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "traveler")
 public class TravelerAPI {
-
     @Autowired
     TravelerService travelerService;
 
