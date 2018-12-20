@@ -7,4 +7,5 @@ import java.util.Optional;
 public interface OTPRepository extends MongoRepository<OTP, String> {
     Optional<OTP> findByEmail(String email);
     void deleteByEmail(String email);
+    void deleteAllByEmail(String email);
 }
