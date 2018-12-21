@@ -13,7 +13,7 @@ public class TourService {
     @Autowired
     TourRepository tourRepo;
 
-    public Tour getTour(int tourId) {
+    public Tour getTour(String tourId) {
         Optional<Tour> tour = tourRepo.findById(tourId);
         if(!tour.isPresent()) {
             throw new NLPigeException();

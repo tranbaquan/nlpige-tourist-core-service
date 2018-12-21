@@ -21,9 +21,9 @@ public class Hashing {
         }
     }
 
-    public static final boolean verifyPassword(String hash, char[] password) {
+    public static final boolean verifyPassword(String hashedPassword, char[] password) {
         try {
-            return ARGON2.verify(hash, password);
+            return ARGON2.verify(hashedPassword, password);
         } finally {
             ARGON2.wipeArray(password);
         }
