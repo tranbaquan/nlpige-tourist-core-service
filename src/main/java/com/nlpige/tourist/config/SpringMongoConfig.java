@@ -10,11 +10,10 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 public class SpringMongoConfig {
     public @Bean
     MongoTemplate mongoTemplate() {
-//        MongoTemplate mongoTemplate = new MongoTemplate(
-//                new MongoClient(
-//                        new MongoClientURI("mongodb+srv://tranbaquan:tranbaquan@nltour-5iwl5.mongodb.net/test?retryWrites=true")
-//                ), "nltour");
-        MongoTemplate mongoTemplate = new MongoTemplate(new MongoClient("localhost"),"nltour");
+        MongoTemplate mongoTemplate = new MongoTemplate(
+                new MongoClient(
+                        new MongoClientURI("mongodb+srv://tranbaquan:tranbaquan@nltour-5iwl5.mongodb.net/test?retryWrites=true")
+                ), "nltour");
         return mongoTemplate;
     }
 }
