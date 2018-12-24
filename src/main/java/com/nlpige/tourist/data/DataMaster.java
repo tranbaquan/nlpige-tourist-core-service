@@ -8,6 +8,7 @@ import com.nlpige.tourist.core.customer.model.Address;
 import com.nlpige.tourist.core.customer.model.Gender;
 import com.nlpige.tourist.core.customer.model.Languages;
 import com.nlpige.tourist.core.tour.model.Place;
+import com.nlpige.tourist.core.tour.model.Price;
 import com.nlpige.tourist.core.tour.model.Tour;
 import com.nlpige.tourist.core.traveler.model.Traveler;
 import org.springframework.context.ApplicationContext;
@@ -137,6 +138,15 @@ public class DataMaster {
         mongoOperations.save(tour1);
         mongoOperations.save(tour2);
 
+        Price price1 = new Price(TourGuideType.RESIDENT, 300);
+        Price price2 = new Price(TourGuideType.STUDENT, 250);
+        Price price3 = new Price(TourGuideType.FREELANCER, 400);
+        Price price4 = new Price(TourGuideType.PROFESSOR, 500);
+
+        mongoOperations.save(price1);
+        mongoOperations.save(price2);
+        mongoOperations.save(price3);
+        mongoOperations.save(price4);
     }
 
 }

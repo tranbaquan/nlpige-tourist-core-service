@@ -24,7 +24,13 @@ public class TourService {
     public List<Tour> getTravelerTours(String email) {
         return tourRepo.findByTraveler_Email(email);
     }
+
     public List<Tour> getCollaboratorTours(String email) {
         return tourRepo.findByTourGuide_Email(email);
+    }
+
+    public Tour createTour(Tour tour) {
+
+        return tourRepo.save(tour);
     }
 }

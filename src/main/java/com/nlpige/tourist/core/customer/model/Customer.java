@@ -17,9 +17,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class Customer {
-    @NonNull
     protected String firstName;
-    @NonNull
     protected String lastName;
     protected String personalID;
     @NonNull
