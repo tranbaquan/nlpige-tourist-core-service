@@ -6,12 +6,15 @@ import com.nlpige.tourist.core.supporter.otp.OTPService;
 import com.nlpige.tourist.exception.DuplicateEmailException;
 import com.nlpige.tourist.exception.NLPigeException;
 import com.nlpige.tourist.exception.NotFoundException;
+import com.nlpige.tourist.utils.Hashing;
 import com.nlpige.tourist.utils.OTPGenerator;
 import com.nlpige.tourist.utils.OTPVerifier;
 import com.nlpige.tourist.utils.UserInformationVerifier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -28,11 +31,16 @@ public class CollaboratorService {
 
     public Collaborator login(Collaborator collaborator) {
         UserInformationVerifier.verifyCustomer(collaborator);
-        collaborator.encryptPassword();
-        Optional<Collaborator> data = collaboratorRepo.findByEmailAndPassword(collaborator.getEmail(), collaborator.getPassword());
+        Optional<Collaborator> data = collaboratorRepo.findByEmail(collaborator.getEmail());
+
         if (!data.isPresent()) {
             throw new NotFoundException();
         }
+
+        if (!Hashing.verifyPassword(data.get().getPassword(), collaborator.getPassword().toCharArray())) {
+            throw new NLPigeException();
+        }
+
         collaborator = data.get();
         collaborator.secureData();
         return collaborator;
@@ -68,6 +76,7 @@ public class CollaboratorService {
         }
 
         OTP otp = new OTP(email, OTPGenerator.getOTP());
+        otp.setExpireTime(LocalDateTime.now().plusMinutes(10));
         return otpService.saveOTP(otp);
     }
 
@@ -78,16 +87,17 @@ public class CollaboratorService {
 
     public Collaborator changePassword(String email, String newPassword, String identifier) {
         OTP otp = otpService.getOTP(email);
-        Optional<Collaborator> collaboratorDate = collaboratorRepo.findByEmail(email);
-        if (!collaboratorDate.isPresent() || !otp.getIdentifier().equals(identifier)) {
+        Optional<Collaborator> collaboratorData = collaboratorRepo.findByEmail(email);
+        if (!collaboratorData.isPresent() || !Objects.equals(otp.getIdentifier(), identifier)) {
             throw new NLPigeException();
         }
 
-        Collaborator collaborator = collaboratorDate.get();
+        Collaborator collaborator = collaboratorData.get();
         collaborator.setPassword(newPassword);
         collaborator.encryptPassword();
         collaborator = collaboratorRepo.save(collaborator);
         collaborator.secureData();
+        otpService.deleteOTP(otp);
         return collaborator;
     }
 }

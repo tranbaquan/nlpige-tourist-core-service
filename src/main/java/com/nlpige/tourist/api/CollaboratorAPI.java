@@ -14,24 +14,25 @@ public class CollaboratorAPI {
     CollaboratorService collaboratorService;
 
     @PostMapping
-    public Collaborator createCollaborator(@RequestBody Collaborator collaborator) {
+    public Collaborator createTraveler(@RequestBody Collaborator collaborator) {
         return collaboratorService.createCollaborator(collaborator);
     }
 
     @GetMapping
-    public Collaborator getCollaborator(@RequestHeader String email) {
+    public Collaborator getTraveler(@RequestHeader String email) {
         return collaboratorService.getCollaborator(email);
     }
 
     @PostMapping(value = "login")
-    public Collaborator login(@RequestBody Collaborator collaborator) {
-        return collaboratorService.login(collaborator);
+    public Collaborator login(@RequestBody Collaborator traveler) {
+        return collaboratorService.login(traveler);
     }
 
     @GetMapping(value = "otp")
-    public void getOTP(@RequestHeader String email, @RequestHeader String requestType) {
+    public OTP getOTP(@RequestHeader String email, @RequestHeader String requestType) {
         OTP otp = collaboratorService.generateOTP(email);
         SendingEmail.sendEmail(email, requestType, "Your OTP: " + otp.getOtp());
+        return otp;
     }
 
     @PostMapping(value = "otp")
@@ -43,4 +44,5 @@ public class CollaboratorAPI {
     public Collaborator changePassword(@RequestHeader String email, @RequestHeader String newPassword, @RequestHeader String identifier) {
         return collaboratorService.changePassword(email, newPassword, identifier);
     }
+
 }
