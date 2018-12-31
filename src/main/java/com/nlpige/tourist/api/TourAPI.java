@@ -26,12 +26,12 @@ public class TourAPI {
         return tourService.getCollaboratorTours(email);
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public Tour createTour(@RequestBody Tour tour) {
         return tourService.createTour(tour);
     }
 
-    @PutMapping("/accept")
+    @PutMapping
     public Tour acceptTour(@RequestHeader String id, @RequestBody Collaborator collaborator) {
         return tourService.acceptTour(id, collaborator);
     }
@@ -40,12 +40,11 @@ public class TourAPI {
 //    public Tour acceptTour(@PathVariable String id, @RequestBody Collaborator collaborator) {
 //        return tourService.acceptTour(id, collaborator);
 //    }
-    @GetMapping("/all")
+    @GetMapping
     public List<Tour> getAllTour(){
         return tourService.getAllTour();
     }
-
-    @DeleteMapping("/cancel")
+    @DeleteMapping
     @ResponseStatus(HttpStatus.OK)
     public void cancelTour(@RequestHeader String id){
         tourService.deleteTour(id);
