@@ -53,10 +53,9 @@ public class TourService {
     }
 
     public void deleteTour(String id){
-    if (!getTour(id).isAccepted()){
-        tourRepo.deleteById(id);
-        return;
+    if (getTour(id).isAccepted()){
+        throw new CannotDeleteTour();
     }
-    throw new CannotDeleteTour();
+        tourRepo.deleteById(id);
     }
 }
