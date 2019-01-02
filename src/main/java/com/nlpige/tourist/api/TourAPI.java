@@ -13,14 +13,19 @@ public class TourAPI {
     @Autowired
     TourService tourService;
 
-    @GetMapping(value = "{email}")
-    public List<Tour> getUserTour(@PathVariable String email) {
+    @GetMapping(value = "/mytour")
+    public List<Tour> getUserTour(@RequestHeader String email) {
         List<Tour> tours = tourService.getTravelerTours(email);
 
-        if(tours != null && !tours.isEmpty()) {
+        if (tours != null && !tours.isEmpty()) {
             return tours;
         }
 
         return tourService.getCollaboratorTours(email);
+    }
+
+    @GetMapping(value = "/all")
+    public List<Tour> getAll() {
+        return tourService.getAll();
     }
 }

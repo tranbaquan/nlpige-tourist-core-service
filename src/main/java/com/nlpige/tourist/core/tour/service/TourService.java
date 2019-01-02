@@ -33,4 +33,8 @@ public class TourService {
 
         return tourRepo.save(tour);
     }
+
+    public  List<Tour> getAll(){
+        return tourRepo.findAll();
+    }
 }
