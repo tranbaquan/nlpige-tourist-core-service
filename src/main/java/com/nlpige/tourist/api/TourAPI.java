@@ -4,6 +4,7 @@ import com.nlpige.tourist.core.collaborator.model.Collaborator;
 import com.nlpige.tourist.core.tour.model.Tour;
 import com.nlpige.tourist.core.tour.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,12 +26,12 @@ public class TourAPI {
         return tourService.getCollaboratorTours(email);
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public Tour createTour(@RequestBody Tour tour) {
         return tourService.createTour(tour);
     }
 
-    @PutMapping("/accept")
+    @PutMapping
     public Tour acceptTour(@RequestHeader String id, @RequestBody Collaborator collaborator) {
         return tourService.acceptTour(id, collaborator);
     }
@@ -39,8 +40,13 @@ public class TourAPI {
 //    public Tour acceptTour(@PathVariable String id, @RequestBody Collaborator collaborator) {
 //        return tourService.acceptTour(id, collaborator);
 //    }
-    @GetMapping("/all")
+    @GetMapping
     public List<Tour> getAllTour(){
         return tourService.getAllTour();
+    }
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
+    public void cancelTour(@RequestHeader String id){
+        tourService.deleteTour(id);
     }
 }

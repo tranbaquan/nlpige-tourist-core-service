@@ -3,6 +3,7 @@ package com.nlpige.tourist.core.tour.service;
 import com.nlpige.tourist.core.collaborator.model.Collaborator;
 import com.nlpige.tourist.core.collaborator.service.CollaboratorService;
 import com.nlpige.tourist.core.tour.model.Tour;
+import com.nlpige.tourist.exception.CannotDeleteTour;
 import com.nlpige.tourist.exception.CollaboratorExistence;
 import com.nlpige.tourist.exception.NLPigeException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,13 +42,20 @@ public class TourService {
         Tour tour =getTour(id);
         if (tour.getTourGuide()==null){
             tour.setTourGuide(collaborator);
-            tourRepo.save(tour);
-            return tour;
+            tour.setAccepted(true);
+         return tourRepo.save(tour);
         }
 
         throw new CollaboratorExistence();
     }
     public List<Tour> getAllTour(){
         return tourRepo.findAll();
+    }
+
+    public void deleteTour(String id){
+    if (getTour(id).isAccepted()){
+        throw new CannotDeleteTour();
+    }
+        tourRepo.deleteById(id);
     }
 }
