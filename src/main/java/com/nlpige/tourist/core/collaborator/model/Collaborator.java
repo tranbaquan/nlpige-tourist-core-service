@@ -18,10 +18,8 @@ public class Collaborator extends Customer {
     private TourGuideType type;
     private String phoneNumber;
 
-    public Collaborator(String firstName, String lastName, String personalID, String email, Gender gender,
-                        LocalDate dob, Address address, Languages languages, String password,
-                        LocalDateTime activeDate, TourGuideType type, String phoneNumber) {
-        super(firstName, lastName, personalID, email, gender, dob, address, languages, password, activeDate);
+    public Collaborator(String firstName, String lastName, String personalID, String email, Gender gender, LocalDate dob, String avatar, Address address, Languages languages, String password, LocalDateTime activeDate, TourGuideType type, String phoneNumber) {
+        super(firstName, lastName, personalID, email, gender, dob, avatar, address, languages, password, activeDate);
         this.type = type;
         this.phoneNumber = phoneNumber;
     }
