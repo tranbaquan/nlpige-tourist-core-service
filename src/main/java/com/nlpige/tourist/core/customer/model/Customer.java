@@ -22,6 +22,7 @@ public abstract class Customer {
     protected String email;
     protected Gender gender;
     protected LocalDate dob;
+    protected String avatar;
     protected Address address;
     @Field(value = "otherLanguages")
     protected Languages languages;
