@@ -95,6 +95,7 @@ public class CollaboratorService {
         Collaborator collaborator = collaboratorData.get();
         collaborator.setPassword(newPassword);
         collaborator.encryptPassword();
+        collaboratorRepo.deleteByEmail(collaborator.getEmail());
         collaborator = collaboratorRepo.save(collaborator);
         collaborator.secureData();
         otpService.deleteOTP(otp);

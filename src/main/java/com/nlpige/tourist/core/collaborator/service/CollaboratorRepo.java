@@ -14,4 +14,6 @@ public interface CollaboratorRepo extends MongoRepository<Collaborator, String> 
     Optional<Collaborator> findByEmail(String email);
 
     Optional<Collaborator> findByEmailAndPassword(String email, String password);
+
+    void deleteByEmail(String s);
 }
