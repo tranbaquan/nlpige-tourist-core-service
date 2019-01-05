@@ -40,7 +40,7 @@ public class TravelerAPI {
         return travelerService.validateOTP(otp);
     }
 
-    @PostMapping(value = "password/change")
+    @PutMapping(value = "password/change")
     public Traveler changePassword(@RequestHeader String email, @RequestHeader String newPassword, @RequestHeader String identifier) {
         return travelerService.changePassword(email, newPassword, identifier);
     }

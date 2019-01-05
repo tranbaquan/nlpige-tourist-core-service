@@ -30,6 +30,19 @@ public class TourAPI {
         return tourService.getAll();
     }
 
+    @GetMapping(value = "/waiting")
+    public List<Tour> getWaiting() {
+     // TODO
+     return null;
+    }
+
+    @PostMapping(value = "register")
+    public boolean registerTour() {
+        // TODO
+        // save new collection with id tour and email collaborator
+        return false;
+    }
+
     @PostMapping
     public Tour createTour(@RequestBody Tour tour) {
         return tourService.createTour(tour);
@@ -38,11 +51,6 @@ public class TourAPI {
     @PutMapping
     public Tour acceptTour(@RequestHeader String id, @RequestBody Collaborator collaborator) {
         return tourService.acceptTour(id, collaborator);
-    }
-
-    @GetMapping
-    public List<Tour> getAllTour() {
-        return tourService.getAll();
     }
 
     @DeleteMapping
