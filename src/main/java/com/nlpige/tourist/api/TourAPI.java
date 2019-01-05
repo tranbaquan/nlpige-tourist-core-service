@@ -60,8 +60,4 @@ public class TourAPI {
         tourService.deleteTour(id);
     }
 
-@GetMapping("/places")
-    public List<Place> getAllPlaces(){
-        return tourService.getAllPlaces();
-    }
 }
