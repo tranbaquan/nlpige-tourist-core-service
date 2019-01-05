@@ -70,4 +70,8 @@ public class TourService {
         }
         tourRepo.deleteById(id);
     }
+
+    public List<Tour> getWaiting() {
+        return tourRepo.findByTourGuideNull();
+    }
 }
