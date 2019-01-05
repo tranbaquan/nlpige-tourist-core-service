@@ -4,6 +4,7 @@ import com.nlpige.tourist.core.collaborator.model.Collaborator;
 import com.nlpige.tourist.core.tour.model.Tour;
 import com.nlpige.tourist.core.tour.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -33,7 +34,7 @@ public class TourAPI {
     @GetMapping(value = "/waiting")
     public List<Tour> getWaiting() {
      // TODO
-     return null;
+     return tourService.getWaiting();
     }
 
     @PostMapping(value = "register")
@@ -57,4 +58,5 @@ public class TourAPI {
     public void cancelTour(@RequestHeader String id) {
         tourService.deleteTour(id);
     }
+
 }
