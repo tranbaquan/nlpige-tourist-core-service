@@ -5,6 +5,7 @@ import com.mongodb.DBObject;
 import com.nlpige.tourist.config.SpringMongoConfig;
 import com.nlpige.tourist.core.collaborator.model.Collaborator;
 import com.nlpige.tourist.core.collaborator.service.CollaboratorService;
+import com.nlpige.tourist.core.tour.model.Place;
 import com.nlpige.tourist.core.tour.model.Tour;
 import com.nlpige.tourist.core.traveler.model.Traveler;
 import com.nlpige.tourist.exception.CannotDeleteTour;
@@ -27,6 +28,8 @@ public class TourService {
     TourRepository tourRepo;
     @Autowired
     CollaboratorService collaboratorService;
+    @Autowired
+    PlaceRepository placeRepo;
     public Tour getTour(String tourId) {
         Optional<Tour> tour = tourRepo.findById(tourId);
         if (!tour.isPresent()) {
@@ -72,5 +75,8 @@ public class TourService {
 
     public List<Tour> getWaiting() {
         return tourRepo.findByTourGuideNull();
+    }
+    public List<Place> getAllPlaces(){
+        return placeRepo.findAll();
     }
 }
