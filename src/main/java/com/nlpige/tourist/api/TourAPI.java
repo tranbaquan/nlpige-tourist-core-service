@@ -59,6 +59,7 @@ public class TourAPI {
     public void cancelTour(@RequestHeader String id) {
         tourService.deleteTour(id);
     }
+
 @GetMapping("/places")
     public List<Place> getAllPlaces(){
         return tourService.getAllPlaces();
