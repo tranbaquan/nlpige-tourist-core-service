@@ -28,8 +28,6 @@ public class TourService {
     TourRepository tourRepo;
     @Autowired
     CollaboratorService collaboratorService;
-    @Autowired
-    PlaceRepository placeRepo;
     public Tour getTour(String tourId) {
         Optional<Tour> tour = tourRepo.findById(tourId);
         if (!tour.isPresent()) {
@@ -71,12 +69,5 @@ public class TourService {
             throw new CannotDeleteTour();
         }
         tourRepo.deleteById(id);
-    }
-
-    public List<Tour> getWaiting() {
-        return tourRepo.findByTourGuideNull();
-    }
-    public List<Place> getAllPlaces(){
-        return placeRepo.findAll();
     }
 }
