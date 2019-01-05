@@ -45,9 +45,10 @@ public class TourService {
         return tour;
     }
 
-    public Tour acceptTour(String id, Collaborator collaborator) {
+    public Tour acceptTour(String id, String email) {
         Tour tour = getTour(id);
-        if (tour.getTourGuide() == null) {
+        Collaborator collaborator = collaboratorService.getCollaborator(email);
+        if (tour.getTourGuide() == null&&!collaborator.equals(null)) {
             tour.setTourGuide(collaborator);
             tour.setAccepted(true);
             return tourRepo.save(tour);
