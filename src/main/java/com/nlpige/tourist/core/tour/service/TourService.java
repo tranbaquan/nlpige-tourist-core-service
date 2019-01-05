@@ -47,8 +47,9 @@ public class TourService {
         return tour;
     }
 
-    public Tour acceptTour(String id, Collaborator collaborator) {
+    public Tour acceptTour(String id, String email) {
         Tour tour = getTour(id);
+        Collaborator collaborator = collaboratorService.getCollaborator(email);
         if (tour.getTourGuide() == null) {
             tour.setTourGuide(collaborator);
             tour.setAccepted(true);
