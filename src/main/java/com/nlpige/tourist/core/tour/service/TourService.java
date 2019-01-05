@@ -8,8 +8,10 @@ import com.nlpige.tourist.exception.CannotDeleteTour;
 import com.nlpige.tourist.exception.CollaboratorExistence;
 import com.nlpige.tourist.exception.NLPigeException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -73,9 +75,30 @@ public class TourService {
     }
 
     public TourRegisteringEntity registerTour(String tourId, String collaboratorEmail) {
-        TourRegisteringEntity result = new TourRegisteringEntity(getTour(tourId), collaboratorEmail);
+        if (tourRegisteringRepository.existsByTour_IdAndCollaborator_Email(tourId, collaboratorEmail)) {
+            return null;
+        }
+        TourRegisteringEntity result = new TourRegisteringEntity(getTour(tourId), collaboratorService.getCollaborator(collaboratorEmail));
         tourRegisteringRepository.save(result);
         return result;
     }
 
+    public List<Collaborator> getAllRegisteredCollaborator(String tourId, int offset,
+                                                           int size) {
+        List<TourRegisteringEntity> tourRegisteringEntities = tourRegisteringRepository.findAllByTour_Id(tourId, PageRequest.of(offset, size));
+        List<Collaborator> collaborators = new ArrayList<>();
+        for (TourRegisteringEntity tourRegisteringEntity : tourRegisteringEntities) {
+            collaborators.add(tourRegisteringEntity.getCollaborator());
+        }
+        return collaborators;
+    }
+
+    public List<Collaborator> getAllRegisteredCollaborator(String tourId) {
+        List<TourRegisteringEntity> tourRegisteringEntities = tourRegisteringRepository.findAllByTour_Id(tourId);
+        List<Collaborator> collaborators = new ArrayList<>();
+        for (TourRegisteringEntity tourRegisteringEntity : tourRegisteringEntities) {
+            collaborators.add(tourRegisteringEntity.getCollaborator());
+        }
+        return collaborators;
+    }
 }
