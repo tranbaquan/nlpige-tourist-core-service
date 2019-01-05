@@ -151,5 +151,6 @@ public class DataMaster {
         mongoOperations.save(price3);
         mongoOperations.save(price4);
     }
-
+    // TODO
+    // Add more data master. Upload image to firebase
 }

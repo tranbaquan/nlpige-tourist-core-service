@@ -1,9 +1,11 @@
 package com.nlpige.tourist.api;
 
 import com.nlpige.tourist.core.collaborator.model.Collaborator;
+import com.nlpige.tourist.core.tour.model.Place;
 import com.nlpige.tourist.core.tour.model.Tour;
 import com.nlpige.tourist.core.tour.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +32,19 @@ public class TourAPI {
         return tourService.getAll();
     }
 
+    @GetMapping(value = "/waiting")
+    public List<Tour> getWaiting() {
+     // TODO
+     return tourService.getWaiting();
+    }
+
+    @PostMapping(value = "register")
+    public boolean registerTour() {
+        // TODO
+        // save new collection with id tour and email collaborator
+        return false;
+    }
+
     @PostMapping
     public Tour createTour(@RequestBody Tour tour) {
         return tourService.createTour(tour);
@@ -40,13 +55,13 @@ public class TourAPI {
         return tourService.acceptTour(id, collaborator);
     }
 
-    @GetMapping
-    public List<Tour> getAllTour() {
-        return tourService.getAll();
-    }
-
     @DeleteMapping
     public void cancelTour(@RequestHeader String id) {
         tourService.deleteTour(id);
+    }
+
+@GetMapping("/places")
+    public List<Place> getAllPlaces(){
+        return tourService.getAllPlaces();
     }
 }
