@@ -48,8 +48,8 @@ public class TourAPI {
     }
 
     @PutMapping
-    public Tour acceptTour(@RequestHeader String id, @RequestBody Collaborator collaborator) {
-        return tourService.acceptTour(id, collaborator);
+    public Tour acceptTour(@RequestHeader String id, @RequestHeader String email) {
+        return tourService.acceptTour(id, email);
     }
 
     @DeleteMapping

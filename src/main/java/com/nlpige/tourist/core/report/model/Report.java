@@ -1,8 +1,9 @@
-package com.nlpige.tourist.core.report;
+package com.nlpige.tourist.core.report.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Document(collection = "report")
 public class Report {
     private String senderEmail;
     private String reportedEmail;
