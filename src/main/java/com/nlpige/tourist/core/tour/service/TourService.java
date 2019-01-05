@@ -1,21 +1,12 @@
 package com.nlpige.tourist.core.tour.service;
 
-import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
-import com.nlpige.tourist.config.SpringMongoConfig;
 import com.nlpige.tourist.core.collaborator.model.Collaborator;
 import com.nlpige.tourist.core.collaborator.service.CollaboratorService;
 import com.nlpige.tourist.core.tour.model.Tour;
-import com.nlpige.tourist.core.traveler.model.Traveler;
 import com.nlpige.tourist.exception.CannotDeleteTour;
 import com.nlpige.tourist.exception.CollaboratorExistence;
 import com.nlpige.tourist.exception.NLPigeException;
-import com.sun.xml.internal.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +18,8 @@ public class TourService {
     TourRepository tourRepo;
     @Autowired
     CollaboratorService collaboratorService;
+    @Autowired
+    PlaceRepository placeRepo;
     public Tour getTour(String tourId) {
         Optional<Tour> tour = tourRepo.findById(tourId);
         if (!tour.isPresent()) {
@@ -73,4 +66,5 @@ public class TourService {
     public List<Tour> getWaiting() {
         return tourRepo.findByTourGuideNull();
     }
+
 }
