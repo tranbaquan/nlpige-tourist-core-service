@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface TravelerRepository extends MongoRepository<Traveler, String> {
     Optional<Traveler> findByEmail(String email);
     Optional<Traveler> findByEmailAndPassword(String email, String password);
+    void deleteByEmail(String s);
 }

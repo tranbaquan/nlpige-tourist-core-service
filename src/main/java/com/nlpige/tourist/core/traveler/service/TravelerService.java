@@ -89,6 +89,7 @@ public class TravelerService {
         Traveler traveler = travelerData.get();
         traveler.setPassword(newPassword);
         traveler.encryptPassword();
+        travelerRepo.deleteByEmail(traveler.getEmail());
         traveler = travelerRepo.save(traveler);
         traveler.secureData();
         otpService.deleteOTP(otp);

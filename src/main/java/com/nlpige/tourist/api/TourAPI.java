@@ -4,7 +4,6 @@ import com.nlpige.tourist.core.collaborator.model.Collaborator;
 import com.nlpige.tourist.core.tour.model.Tour;
 import com.nlpige.tourist.core.tour.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +14,8 @@ public class TourAPI {
     @Autowired
     TourService tourService;
 
-    @GetMapping(value = "{email}")
-    public List<Tour> getUserTour(@PathVariable String email) {
+    @GetMapping(value = "/mytour")
+    public List<Tour> getUserTour(@RequestHeader String email) {
         List<Tour> tours = tourService.getTravelerTours(email);
 
         if (tours != null && !tours.isEmpty()) {
@@ -24,6 +23,24 @@ public class TourAPI {
         }
 
         return tourService.getCollaboratorTours(email);
+    }
+
+    @GetMapping(value = "/all")
+    public List<Tour> getAll() {
+        return tourService.getAll();
+    }
+
+    @GetMapping(value = "/waiting")
+    public List<Tour> getWaiting() {
+     // TODO
+     return null;
+    }
+
+    @PostMapping(value = "register")
+    public boolean registerTour() {
+        // TODO
+        // save new collection with id tour and email collaborator
+        return false;
     }
 
     @PostMapping
@@ -36,17 +53,8 @@ public class TourAPI {
         return tourService.acceptTour(id, collaborator);
     }
 
-//    @PutMapping("/{id}")
-//    public Tour acceptTour(@PathVariable String id, @RequestBody Collaborator collaborator) {
-//        return tourService.acceptTour(id, collaborator);
-//    }
-    @GetMapping
-    public List<Tour> getAllTour(){
-        return tourService.getAllTour();
-    }
     @DeleteMapping
-    @ResponseStatus(HttpStatus.OK)
-    public void cancelTour(@RequestHeader String id){
+    public void cancelTour(@RequestHeader String id) {
         tourService.deleteTour(id);
     }
 }

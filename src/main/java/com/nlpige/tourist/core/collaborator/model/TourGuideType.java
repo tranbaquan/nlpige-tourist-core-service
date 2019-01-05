@@ -1,10 +1,10 @@
 package com.nlpige.tourist.core.collaborator.model;
 
 public enum TourGuideType {
-    PROFESSOR("Professor"),
-    FREELANCER("Freelancer"),
-    STUDENT("Student"),
-    RESIDENT("Resident");
+    PROFESSOR("PROFESSOR"),
+    FREELANCER("FREELANCER"),
+    STUDENT("STUDENT"),
+    RESIDENT("RESIDENT");
 
     private final String type;
 
