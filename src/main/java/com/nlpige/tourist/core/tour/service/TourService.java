@@ -3,6 +3,7 @@ package com.nlpige.tourist.core.tour.service;
 import com.nlpige.tourist.core.collaborator.model.Collaborator;
 import com.nlpige.tourist.core.collaborator.service.CollaboratorService;
 import com.nlpige.tourist.core.tour.model.Tour;
+import com.nlpige.tourist.core.tour.model.TourRegisteringEntity;
 import com.nlpige.tourist.exception.CannotDeleteTour;
 import com.nlpige.tourist.exception.CollaboratorExistence;
 import com.nlpige.tourist.exception.NLPigeException;
@@ -19,7 +20,10 @@ public class TourService {
     @Autowired
     CollaboratorService collaboratorService;
     @Autowired
+    TourRegisteringRepository tourRegisteringRepository;
+    @Autowired
     PlaceRepository placeRepo;
+
     public Tour getTour(String tourId) {
         Optional<Tour> tour = tourRepo.findById(tourId);
         if (!tour.isPresent()) {
@@ -66,6 +70,12 @@ public class TourService {
 
     public List<Tour> getWaiting() {
         return tourRepo.findByTourGuideNull();
+    }
+
+    public TourRegisteringEntity registerTour(String tourId, String collaboratorEmail) {
+        TourRegisteringEntity result = new TourRegisteringEntity(getTour(tourId), collaboratorEmail);
+        tourRegisteringRepository.save(result);
+        return result;
     }
 
 }
