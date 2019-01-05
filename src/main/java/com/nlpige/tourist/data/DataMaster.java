@@ -8,6 +8,7 @@ import com.nlpige.tourist.core.customer.model.Address;
 import com.nlpige.tourist.core.customer.model.Gender;
 import com.nlpige.tourist.core.customer.model.Languages;
 import com.nlpige.tourist.core.tour.model.Place;
+import com.nlpige.tourist.core.tour.model.Price;
 import com.nlpige.tourist.core.tour.model.Tour;
 import com.nlpige.tourist.core.traveler.model.Traveler;
 import org.springframework.context.ApplicationContext;
@@ -39,6 +40,7 @@ public class DataMaster {
                 "123456789",
                 "pipercj@gmail.com",
                 Gender.FEMALE, LocalDate.of(1990, 11, 22),
+                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("America", "California"),
                 languages,
                 "123456",
@@ -50,7 +52,7 @@ public class DataMaster {
                 "123456788",
                 "andrew@gmail.com",
                 Gender.MALE, LocalDate.of(1988, 11, 11),
-                new Address("America", "New York"),
+                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",                new Address("America", "New York"),
                 languages,
                 "123456",
                 LocalDateTime.of(2018, 12, 14, 17, 30),
@@ -64,6 +66,7 @@ public class DataMaster {
                 "231101668",
                 "tranbaquan.tbq@gmail.com",
                 Gender.MALE, LocalDate.of(1997, 11, 02),
+                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "123456",
@@ -76,6 +79,7 @@ public class DataMaster {
                 "123456785",
                 "dinhchithien@gmail.com",
                 Gender.MALE, LocalDate.of(1997, 02, 02),
+                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "123456",
@@ -137,6 +141,16 @@ public class DataMaster {
         mongoOperations.save(tour1);
         mongoOperations.save(tour2);
 
-    }
+        Price price1 = new Price(TourGuideType.RESIDENT, 300);
+        Price price2 = new Price(TourGuideType.STUDENT, 250);
+        Price price3 = new Price(TourGuideType.FREELANCER, 400);
+        Price price4 = new Price(TourGuideType.PROFESSOR, 500);
 
+        mongoOperations.save(price1);
+        mongoOperations.save(price2);
+        mongoOperations.save(price3);
+        mongoOperations.save(price4);
+    }
+    // TODO
+    // Add more data master. Upload image to firebase
 }

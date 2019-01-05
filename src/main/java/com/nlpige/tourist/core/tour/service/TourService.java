@@ -48,7 +48,7 @@ public class TourService {
 
         throw new CollaboratorExistence();
     }
-    public List<Tour> getAllTour(){
+    public List<Tour> getAll(){
         return tourRepo.findAll();
     }
 
