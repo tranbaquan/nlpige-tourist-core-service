@@ -56,4 +56,14 @@ public class TourAPI {
     public void cancelTour(@RequestHeader String id) {
         tourService.deleteTour(id);
     }
+
+    @GetMapping(value = "getregisteredcollaborator")
+    public List<Collaborator> getAllRegisteredCollaborator(@RequestHeader String tourId, @RequestHeader int offset, @RequestHeader int size) {
+        return tourService.getAllRegisteredCollaborator(tourId, offset, size);
+    }
+
+    @GetMapping(value = "getallregisteredcollaborator")
+    public List<Collaborator> getAllRegisteredCollaborator(@RequestHeader String tourId) {
+        return tourService.getAllRegisteredCollaborator(tourId);
+    }
 }
