@@ -127,7 +127,7 @@ public class DataMaster {
                traveler1,
                collaborator1,
                LocalDateTime.of(2018,12,22, 9, 00),
-               190,false
+               190,true
         );
 
         Tour tour2 = new Tour("tour2",
@@ -135,7 +135,7 @@ public class DataMaster {
                 traveler2,
                 collaborator2,
                 LocalDateTime.of(2018,12,22, 9, 00),
-                190,false
+                190,true
         );
 
         mongoOperations.save(tour1);

@@ -4,6 +4,7 @@ import com.nlpige.tourist.core.tour.model.Place;
 import com.nlpige.tourist.core.tour.service.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,5 +19,10 @@ public class PlaceAPI {
     @GetMapping("/all")
     public List<Place> getAllPlaces() {
         return placeService.getAllPlaces();
+    }
+
+    @GetMapping("/name")
+    public List<Place> findPlaceByName(@RequestHeader String name, @RequestHeader int number){
+        return placeService.findPlaceWithName(name,number);
     }
 }

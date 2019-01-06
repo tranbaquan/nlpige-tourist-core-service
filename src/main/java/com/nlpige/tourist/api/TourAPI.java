@@ -1,8 +1,8 @@
 package com.nlpige.tourist.api;
 
 import com.nlpige.tourist.core.collaborator.model.Collaborator;
-import com.nlpige.tourist.core.tour.model.Place;
 import com.nlpige.tourist.core.tour.model.Tour;
+import com.nlpige.tourist.core.tour.model.TourRegisteringEntity;
 import com.nlpige.tourist.core.tour.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,10 +38,8 @@ public class TourAPI {
     }
 
     @PostMapping(value = "register")
-    public boolean registerTour() {
-        // TODO
-        // save new collection with id tour and email collaborator
-        return false;
+    public TourRegisteringEntity registerTour(@RequestHeader String tourId, @RequestHeader String collaboratorEmail) {
+        return tourService.registerTour(tourId, collaboratorEmail);
     }
 
     @PostMapping
@@ -50,12 +48,22 @@ public class TourAPI {
     }
 
     @PutMapping
-    public Tour acceptTour(@RequestHeader String id, @RequestBody Collaborator collaborator) {
-        return tourService.acceptTour(id, collaborator);
+    public Tour acceptTour(@RequestHeader String id, @RequestHeader String email) {
+        return tourService.acceptTour(id, email);
     }
 
     @DeleteMapping
     public void cancelTour(@RequestHeader String id) {
         tourService.deleteTour(id);
+    }
+
+    @GetMapping(value = "getregisteredcollaborator")
+    public List<Collaborator> getAllRegisteredCollaborator(@RequestHeader String tourId, @RequestHeader int offset, @RequestHeader int size) {
+        return tourService.getAllRegisteredCollaborator(tourId, offset, size);
+    }
+
+    @GetMapping(value = "getallregisteredcollaborator")
+    public List<Collaborator> getAllRegisteredCollaborator(@RequestHeader String tourId) {
+        return tourService.getAllRegisteredCollaborator(tourId);
     }
 }

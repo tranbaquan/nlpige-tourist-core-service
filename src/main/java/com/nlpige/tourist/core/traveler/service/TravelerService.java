@@ -81,18 +81,38 @@ public class TravelerService {
 
     public Traveler changePassword(String email, String newPassword, String identifier) {
         OTP otp = otpService.getOTP(email);
-        Optional<Traveler> travelerData = travelerRepo.findByEmail(email);
-        if (!travelerData.isPresent() || !Objects.equals(otp.getIdentifier(), identifier)) {
+        Optional<Traveler> travelerOptional = travelerRepo.findByEmail(email);
+        if (!travelerOptional.isPresent() || !Objects.equals(otp.getIdentifier(), identifier)) {
             throw new NLPigeException();
         }
 
-        Traveler traveler = travelerData.get();
+        Traveler traveler = travelerOptional.get();
+        traveler = setNewPassword(newPassword, traveler);
+        otpService.deleteOTP(otp);
+        return traveler;
+    }
+
+    public Traveler changeUserPassword(String email, String oldPassword, String newPassword) {
+        Optional<Traveler> travelerOptional = travelerRepo.findByEmail(email);
+        if (!travelerOptional.isPresent()) {
+            throw new NLPigeException();
+        }
+
+        Traveler traveler = travelerOptional.get();
+        if (!Hashing.verifyPassword(traveler.getPassword(), oldPassword.toCharArray())) {
+            throw new NLPigeException();
+        }
+
+        traveler = setNewPassword(newPassword, traveler);
+        return traveler;
+    }
+
+    private Traveler setNewPassword(String newPassword, Traveler traveler) {
         traveler.setPassword(newPassword);
         traveler.encryptPassword();
         travelerRepo.deleteByEmail(traveler.getEmail());
         traveler = travelerRepo.save(traveler);
         traveler.secureData();
-        otpService.deleteOTP(otp);
         return traveler;
     }
 }
