@@ -17,8 +17,8 @@ public class ReportAPI {
         return reportService.addReport(report);
     }
     @GetMapping("/reports")
-    public List<Report> getReports(@RequestHeader String reported_email){
-        return reportService.getReportsBySomeOne(reported_email);
+    public List<Report> getReports(@RequestHeader String senderEmail, @RequestHeader String reportedEmail) {
+        return reportService.getReports(senderEmail, reportedEmail);
     }
     @GetMapping("/all")
     public List<Report> getAllReports(){

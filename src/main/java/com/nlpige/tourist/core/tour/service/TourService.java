@@ -8,11 +8,9 @@ import com.nlpige.tourist.core.traveler.service.TravelerService;
 import com.nlpige.tourist.exception.CannotDeleteTour;
 import com.nlpige.tourist.exception.CollaboratorExistence;
 import com.nlpige.tourist.exception.NLPigeException;
-import com.nlpige.tourist.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.ls.LSInput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +46,7 @@ public class TourService {
     }
 
     public Tour createTour(Tour tour) {
+        if (!tour.getTourGuide().equals(null)) tour.setAccepted(true);
         tour = tourRepo.save(tour);
         return tour;
     }
@@ -107,4 +106,7 @@ public class TourService {
         return collaborators;
     }
 
+    public boolean hadTour(String tourGuideEmail, String travelerEmail) {
+        return tourRepo.findFirstByTourGuide_EmailAndTraveler_Email(tourGuideEmail, travelerEmail).isAccepted();
+    }
 }
