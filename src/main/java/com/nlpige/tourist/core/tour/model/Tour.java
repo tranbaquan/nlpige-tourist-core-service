@@ -22,7 +22,6 @@ public class Tour {
     private Place place;
     private Traveler traveler;
     private Collaborator tourGuide;
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     private LocalDateTime startDate;
     private double price;
     private boolean isAccepted;

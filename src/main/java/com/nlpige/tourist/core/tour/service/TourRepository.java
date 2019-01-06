@@ -15,5 +15,4 @@ public interface TourRepository extends MongoRepository<Tour, String> {
     List<Tour> findByTourGuide_Email(String email);
 
     List<Tour> findByTourGuideNull();
-//List<Tour> findToursByTraveler_EmailAndTourGuide_Email(String travelerEmail, String tourGuideEmail);
 }

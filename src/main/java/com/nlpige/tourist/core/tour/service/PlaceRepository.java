@@ -8,5 +8,5 @@ import java.awt.print.Pageable;
 import java.util.List;
 
 public interface PlaceRepository extends MongoRepository<Place, String> {
-    List<Place> findPlacesByNameStartsWith(String name);
+    List<Place> findPlacesByNameIsContaining(String name);
 }

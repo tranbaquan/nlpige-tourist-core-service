@@ -93,12 +93,32 @@ public class CollaboratorService {
         }
 
         Collaborator collaborator = collaboratorData.get();
+        collaborator = setNewPassword(newPassword, collaborator);
+        otpService.deleteOTP(otp);
+        return collaborator;
+    }
+
+    public Collaborator changeUserPassword(String email, String oldPassword, String newPassword) {
+        Optional<Collaborator> collaboratorOptional = collaboratorRepo.findByEmail(email);
+        if (!collaboratorOptional.isPresent()) {
+            throw new NLPigeException();
+        }
+
+        Collaborator collaborator = collaboratorOptional.get();
+        if (!Hashing.verifyPassword(collaborator.getPassword(), oldPassword.toCharArray())) {
+            throw new NLPigeException();
+        }
+
+        collaborator = setNewPassword(newPassword, collaborator);
+        return collaborator;
+    }
+
+    private Collaborator setNewPassword(String newPassword, Collaborator collaborator) {
         collaborator.setPassword(newPassword);
         collaborator.encryptPassword();
         collaboratorRepo.deleteByEmail(collaborator.getEmail());
         collaborator = collaboratorRepo.save(collaborator);
         collaborator.secureData();
-        otpService.deleteOTP(otp);
         return collaborator;
     }
 }

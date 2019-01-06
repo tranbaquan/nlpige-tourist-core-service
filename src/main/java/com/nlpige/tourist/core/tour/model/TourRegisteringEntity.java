@@ -1,5 +1,6 @@
 package com.nlpige.tourist.core.tour.model;
 
+import com.nlpige.tourist.core.collaborator.model.Collaborator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,5 +19,5 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class TourRegisteringEntity {
     @DBRef
     private Tour tour;
-    private String collaboratorEmail;
+    private Collaborator collaborator;
 }

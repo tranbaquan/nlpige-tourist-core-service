@@ -13,13 +13,18 @@ public class PlaceAPI {
     @Autowired
     PlaceService placeService;
 
-    @GetMapping("/all")
+    @GetMapping("all")
     public List<Place> getAllPlaces() {
         return placeService.getAllPlaces();
     }
 
-    @GetMapping("/{name}")
-    public List<Place> findPlaceByName(@PathVariable String name){
+    @GetMapping("{name}")
+    public List<Place> findPlaceByName(@PathVariable(value = "name") String name){
+        System.out.println(name);
         return placeService.findPlaceWithName(name);
+    }
+    @GetMapping("getwithsize")
+    public List<Place> gettingWithSize(@RequestHeader int offset, @RequestHeader int size){
+        return placeService.getPlaces(offset, size);
     }
 }

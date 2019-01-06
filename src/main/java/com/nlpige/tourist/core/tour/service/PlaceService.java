@@ -13,11 +13,15 @@ public class PlaceService {
     @Autowired
     PlaceRepository placeRepo;
 
-    public List<Place> getAllPlaces(){
+    public List<Place> getAllPlaces() {
         return placeRepo.findAll();
     }
 
-    public List<Place> findPlaceWithName(String name){
-    return placeRepo.findPlacesByNameStartsWith(name);
+    public List<Place> findPlaceWithName(String name) {
+        return placeRepo.findPlacesByNameIsContaining(name);
+    }
+
+    public List<Place> getPlaces(int offset, int size) {
+        return  placeRepo.findAll(PageRequest.of(offset, size)).getContent();
     }
 }
