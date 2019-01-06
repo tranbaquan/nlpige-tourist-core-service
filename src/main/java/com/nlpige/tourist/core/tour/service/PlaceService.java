@@ -17,7 +17,7 @@ public class PlaceService {
         return placeRepo.findAll();
     }
 
-    public List<Place> findPlaceWithName(String name, int number){
-    return placeRepo.findPlacesByNameStartsWith(name, PageRequest.of(0,number ));
+    public List<Place> findPlaceWithName(String name){
+    return placeRepo.findPlacesByNameStartsWith(name);
     }
 }

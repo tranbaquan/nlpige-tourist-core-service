@@ -3,10 +3,7 @@ package com.nlpige.tourist.api;
 import com.nlpige.tourist.core.tour.model.Place;
 import com.nlpige.tourist.core.tour.service.PlaceService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,8 +18,8 @@ public class PlaceAPI {
         return placeService.getAllPlaces();
     }
 
-    @GetMapping("/name")
-    public List<Place> findPlaceByName(@RequestHeader String name, @RequestHeader int number){
-        return placeService.findPlaceWithName(name,number);
+    @GetMapping("/{name}")
+    public List<Place> findPlaceByName(@PathVariable String name){
+        return placeService.findPlaceWithName(name);
     }
 }
