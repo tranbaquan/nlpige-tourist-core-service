@@ -23,4 +23,5 @@ public class Tour {
     private LocalDateTime startDate;
     private double price;
     private boolean isAccepted;
+
 }

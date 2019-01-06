@@ -1,12 +1,12 @@
 package com.nlpige.tourist.core.report.service;
 
-import com.mongodb.MongoClientURI;
-import com.nlpige.tourist.core.collaborator.model.Collaborator;
 import com.nlpige.tourist.core.report.model.Report;
-import com.nlpige.tourist.core.traveler.model.Traveler;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.Repository;
+import org.springframework.scheduling.support.SimpleTriggerContext;
 
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.List;
 
 public interface ReportRepository extends MongoRepository<Report,String> {
+    List<Report> findBySenderEmailAndReportedEmail(String senderEmail, String reportedEmail);
 }
