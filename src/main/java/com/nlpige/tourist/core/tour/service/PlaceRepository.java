@@ -6,5 +6,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 
 public interface PlaceRepository extends MongoRepository<Place, String> {
-    List<Place> findPlacesByNameIsContaining(String name);
+    List<Place> findPlacesByNameIsNear(String name);
 }

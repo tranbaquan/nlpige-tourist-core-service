@@ -1,5 +1,6 @@
 package com.nlpige.tourist.core.tour.service;
 
+import com.nlpige.tourist.core.collaborator.model.Collaborator;
 import com.nlpige.tourist.core.tour.model.Tour;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
