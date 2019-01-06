@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 @Service
@@ -13,15 +12,16 @@ public class PlaceService {
     @Autowired
     PlaceRepository placeRepo;
 
-    public List<Place> getAllPlaces(){
+    public List<Place> getAllPlaces() {
         return placeRepo.findAll();
     }
 
     public List<Place> findPlaceWithName(String name) {
-        return placeRepo.findPlacesByNameIsContaining(name);
+        System.out.println(placeRepo.findPlacesByNameIsNear(name)); // TODO: 06-Jan-19 debug point
+        return placeRepo.findPlacesByNameIsNear(name);
     }
 
     public List<Place> getPlaces(int offset, int size) {
-        return  placeRepo.findAll(PageRequest.of(offset, size)).getContent();
+        return placeRepo.findAll(PageRequest.of(offset, size)).getContent();
     }
 }
