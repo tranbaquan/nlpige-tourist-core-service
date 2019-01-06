@@ -4,12 +4,15 @@ import com.nlpige.tourist.core.collaborator.model.Collaborator;
 import com.nlpige.tourist.core.collaborator.service.CollaboratorService;
 import com.nlpige.tourist.core.tour.model.Tour;
 import com.nlpige.tourist.core.tour.model.TourRegisteringEntity;
+import com.nlpige.tourist.core.traveler.service.TravelerService;
 import com.nlpige.tourist.exception.CannotDeleteTour;
 import com.nlpige.tourist.exception.CollaboratorExistence;
 import com.nlpige.tourist.exception.NLPigeException;
+import com.nlpige.tourist.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.ls.LSInput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +28,8 @@ public class TourService {
     TourRegisteringRepository tourRegisteringRepository;
     @Autowired
     PlaceRepository placeRepo;
+    @Autowired
+    TravelerService travelerService;
 
     public Tour getTour(String tourId) {
         Optional<Tour> tour = tourRepo.findById(tourId);
