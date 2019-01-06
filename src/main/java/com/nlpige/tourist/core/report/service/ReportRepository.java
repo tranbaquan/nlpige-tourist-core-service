@@ -8,5 +8,5 @@ import org.springframework.scheduling.support.SimpleTriggerContext;
 import java.util.List;
 
 public interface ReportRepository extends MongoRepository<Report,String> {
-    List<Report> findReportsByReportedEmail(String email);
+    List<Report> findBySenderEmailAndReportedEmail(String senderEmail, String reportedEmail);
 }

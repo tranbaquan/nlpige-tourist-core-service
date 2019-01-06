@@ -66,4 +66,5 @@ public class TourAPI {
     public List<Collaborator> getAllRegisteredCollaborator(@RequestHeader String tourId) {
         return tourService.getAllRegisteredCollaborator(tourId);
     }
+
 }

@@ -48,6 +48,7 @@ public class TourService {
     }
 
     public Tour createTour(Tour tour) {
+        if (!tour.getTourGuide().equals(null)) tour.setAccepted(true);
         tour = tourRepo.save(tour);
         return tour;
     }
@@ -107,4 +108,7 @@ public class TourService {
         return collaborators;
     }
 
+    public boolean hadTour(String tourGuideEmail, String travelerEmail) {
+        return tourRepo.findFirstByTourGuide_EmailAndTraveler_Email(tourGuideEmail, travelerEmail).isAccepted();
+    }
 }
