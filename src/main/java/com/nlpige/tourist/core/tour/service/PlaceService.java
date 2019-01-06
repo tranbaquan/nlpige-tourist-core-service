@@ -17,8 +17,7 @@ public class PlaceService {
     }
 
     public List<Place> findPlaceWithName(String name) {
-        System.out.println(placeRepo.findPlacesByNameIsNear(name)); // TODO: 06-Jan-19 debug point
-        return placeRepo.findPlacesByNameIsNear(name);
+        return placeRepo.findPlacesByNameIsLike(name);
     }
 
     public List<Place> getPlaces(int offset, int size) {
