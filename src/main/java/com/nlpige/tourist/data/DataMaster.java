@@ -14,8 +14,6 @@ import com.nlpige.tourist.core.traveler.model.Traveler;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -95,6 +93,7 @@ public class DataMaster {
         Address address = new Address("Viet Nam", "Ho Chi Minh city");
 
         mongoOperations.save(address);
+
         Place place1 = new Place(
                 "Ben Thanh Market",
                 "assets/images/travel.png",
