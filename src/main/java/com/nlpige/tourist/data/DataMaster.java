@@ -96,7 +96,7 @@ public class DataMaster {
 
         Place place1 = new Place(
                 "Ben Thanh Market",
-                "assets/images/travel.png",
+                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 "The Ben Thanh Traditional Market (Cho Ben Thanh) is the most famous shopping destination" +
                         " in the city. This is not the cheapest market in the city but it has a good reputation, a" +
                         " central location and a history. The market was first set up as an informal gathering of vendors" +
@@ -108,7 +108,7 @@ public class DataMaster {
                 1000);
         Place place2 = new Place(
                 "Notre Dame Cathedral",
-                "assets/images/travel.png",
+                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 "Ho Chi Minh City has quite a large Catholic community who worship at this historic cathedral. The Saigon" +
                         " Basilica of Our Lady of the Immaculate Conception was built between 1863 and 1880 under the French" +
                         " colonists. They used only building materials imported from France; it has a red brick exterior" +
