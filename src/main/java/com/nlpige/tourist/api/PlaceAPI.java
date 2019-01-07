@@ -20,6 +20,7 @@ public class PlaceAPI {
 
     @GetMapping("{name}")
     public List<Place> findPlaceByName(@PathVariable(value = "name") String name){
+        System.out.println(name); // TODO: 06-Jan-19 debug point
         return placeService.findPlaceWithName(name);
     }
     @GetMapping("getwithsize")

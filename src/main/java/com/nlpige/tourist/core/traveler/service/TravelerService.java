@@ -115,4 +115,19 @@ public class TravelerService {
         traveler.secureData();
         return traveler;
     }
+
+    public Traveler updateInformation(Traveler traveler) {
+        UserInformationVerifier.verifyCustomer(traveler);
+        Optional<Traveler> travelerOptional = travelerRepo.findByEmail(traveler.getEmail());
+        if (!travelerOptional.isPresent()) {
+            throw new NotFoundException();
+        }
+
+        // TODO: 07-Jan-19 Check to make sure there is no null field of param traveler
+        traveler.setPassword(travelerOptional.get().getPassword());
+        travelerRepo.deleteByEmail(traveler.getEmail());
+        travelerRepo.save(traveler);
+        traveler.secureData();
+        return traveler;
+    }
 }
