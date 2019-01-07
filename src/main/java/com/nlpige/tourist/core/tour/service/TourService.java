@@ -46,7 +46,6 @@ public class TourService {
     }
 
     public Tour createTour(Tour tour) {
-        if (!tour.getTourGuide().equals(null)) tour.setAccepted(true);
         tour = tourRepo.save(tour);
         return tour;
     }

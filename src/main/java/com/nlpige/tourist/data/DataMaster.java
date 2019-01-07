@@ -14,8 +14,6 @@ import com.nlpige.tourist.core.traveler.model.Traveler;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -45,7 +43,7 @@ public class DataMaster {
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("America", "California"),
                 languages,
-                "123456",
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 14, 17, 30),
                 "US1234567");
 
@@ -56,17 +54,18 @@ public class DataMaster {
                 Gender.MALE, LocalDate.of(1988, 11, 11),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997", new Address("America", "New York"),
                 languages,
-                "123456",
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 14, 17, 30),
                 "US1234567");
         Traveler traveler3 = new Traveler("Truong",
                 "Nguyen Ngoc Lam Bao",
                 "671605156",
-                "trường@gmail.com",
+                "truong@gmail.com",
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
-                languages, "123654", LocalDateTime.of(2018, 12, 14, 17, 30), "VN4445222");
+                languages,
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "VN4445222");
         Traveler traveler4 = new Traveler("Hải",
                 "Trần Thanh",
                 "216787544",
@@ -74,7 +73,7 @@ public class DataMaster {
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
-                languages, "123654", LocalDateTime.of(2018, 12, 14, 17, 30), "VN4414044");
+                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "VN4414044");
         Traveler traveler5 = new Traveler("Quan",
                 "Trần Bá ",
                 "415007076",
@@ -82,7 +81,7 @@ public class DataMaster {
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
-                languages, "123654", LocalDateTime.of(2018, 12, 14, 17, 30), "VN6146154");
+                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "VN6146154");
         Traveler traveler6 = new Traveler("Thiên",
                 "Đinh Chí",
                 "167510743",
@@ -90,7 +89,7 @@ public class DataMaster {
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
-                languages, "123654", LocalDateTime.of(2018, 12, 14, 17, 30), "VN1235014");
+                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "VN1235014");
         Traveler traveler7 = new Traveler("Jeremie",
                 "Belpois",
                 "257505163",
@@ -98,7 +97,7 @@ public class DataMaster {
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
-                languages, "123654", LocalDateTime.of(2018, 12, 14, 17, 30), "US3531012");
+                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "US3531012");
         Traveler traveler8 = new Traveler("Aelita",
                 "Schaeffer",
                 "745576853",
@@ -106,7 +105,7 @@ public class DataMaster {
                 Gender.FEMALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
-                languages, "123654", LocalDateTime.of(2018, 12, 14, 17, 30), "US5504234");
+                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "US5504234");
         Traveler traveler9 = new Traveler("Odd",
                 "Della Robbia",
                 "501412357",
@@ -114,7 +113,7 @@ public class DataMaster {
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
-                languages, "123654", LocalDateTime.of(2018, 12, 14, 17, 30), "US1502641");
+                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "US1502641");
         Traveler traveler10 = new Traveler("Ulrich",
                 "Stern",
                 "674283615",
@@ -122,7 +121,7 @@ public class DataMaster {
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
-                languages, "123654", LocalDateTime.of(2018, 12, 14, 17, 30), "FR6000446");
+                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "FR6000446");
         mongoOperations.save(traveler1);
         mongoOperations.save(traveler2);
         mongoOperations.save(traveler3);
@@ -137,12 +136,12 @@ public class DataMaster {
         Collaborator collaborator1 = new Collaborator(
                 "Quan", "Trần Bá",
                 "231101668",
-                "tranbaquan.tbq@gmail.com",
+                "tranbaquan1.tbq@gmail.com",
                 Gender.MALE, LocalDate.of(1997, 11, 02),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
-                "123456",
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
                 TourGuideType.PROFESSOR,
                 "0393452595");
@@ -155,7 +154,7 @@ public class DataMaster {
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
-                "123456",
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
                 TourGuideType.PROFESSOR,
                 "0393939393");
@@ -167,7 +166,7 @@ public class DataMaster {
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
-                "123456",
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
                 TourGuideType.PROFESSOR,
                 "0393939393");
@@ -179,7 +178,7 @@ public class DataMaster {
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
-                "123456",
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
                 TourGuideType.PROFESSOR,
                 "0393939393");
@@ -191,7 +190,7 @@ public class DataMaster {
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
-                "123456",
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
                 TourGuideType.PROFESSOR,
                 "0393939393");
@@ -203,7 +202,7 @@ public class DataMaster {
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
-                "123456",
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
                 TourGuideType.PROFESSOR,
                 "0393939393");
@@ -215,7 +214,7 @@ public class DataMaster {
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
-                "123456",
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
                 TourGuideType.PROFESSOR,
                 "0393939393");
@@ -227,7 +226,7 @@ public class DataMaster {
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
-                "123456",
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
                 TourGuideType.PROFESSOR,
                 "0393939393");
@@ -239,7 +238,7 @@ public class DataMaster {
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
-                "123456",
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
                 TourGuideType.PROFESSOR,
                 "0393939393");
@@ -251,7 +250,7 @@ public class DataMaster {
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
-                "123456",
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
                 TourGuideType.PROFESSOR,
                 "0393939393");
