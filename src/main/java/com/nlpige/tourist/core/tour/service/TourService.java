@@ -8,11 +8,9 @@ import com.nlpige.tourist.core.traveler.service.TravelerService;
 import com.nlpige.tourist.exception.CannotDeleteTour;
 import com.nlpige.tourist.exception.CollaboratorExistence;
 import com.nlpige.tourist.exception.NLPigeException;
-import com.nlpige.tourist.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import org.w3c.dom.ls.LSInput;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,8 +50,8 @@ public class TourService {
         return tour;
     }
 
-    public Tour acceptTour(String id, String email) {
-        Tour tour = getTour(id);
+    public Tour acceptTour(String tourId, String email) {
+        Tour tour = getTour(tourId);
         Collaborator collaborator = collaboratorService.getCollaborator(email);
         if (tour.getTourGuide() == null) {
             tour.setTourGuide(collaborator);
@@ -110,7 +108,7 @@ public class TourService {
 
     public boolean hadTour(String tourGuideEmail, String travelerEmail) {
         try {
-            return tourRepo.findFirstByTourGuide_EmailAndTraveler_Email(tourGuideEmail, travelerEmail).isAccept();
+            return tourRepo.findFirstByTourGuide_EmailAndTraveler_Email(tourGuideEmail, travelerEmail).isAccepted();
         } catch (NullPointerException e) {
             return false;
         }
@@ -118,7 +116,9 @@ public class TourService {
 
     public List<Tour> myTours(String email) {
         List<Tour> tours = tourRepo.findByTraveler_EmailOrderByStartDateDesc(email);
-        if (tours.isEmpty()) tours = tourRepo.findByTourGuide_EmailOrderByStartDateDesc(email);
+        if (tours.isEmpty()) {
+            tours = tourRepo.findByTourGuide_EmailOrderByStartDateDesc(email);
+        }
         return tours;
     }
 }
