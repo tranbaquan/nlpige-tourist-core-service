@@ -1,6 +1,5 @@
 package com.nlpige.tourist.core.tour.service;
 
-import com.nlpige.tourist.core.collaborator.model.Collaborator;
 import com.nlpige.tourist.core.tour.model.Tour;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
@@ -15,4 +14,7 @@ public interface TourRepository extends MongoRepository<Tour, String> {
 
     Tour findFirstByTourGuide_EmailAndTraveler_Email(String tourGuideEmail, String travelerEmail);
 
+    List<Tour> findByTraveler_EmailOrderByStartDateDesc(String travelerEmail);
+
+    List<Tour> findByTourGuide_EmailOrderByStartDateDesc(String tourGuideEmail);
 }
