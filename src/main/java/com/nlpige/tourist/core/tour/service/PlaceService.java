@@ -17,7 +17,7 @@ public class PlaceService {
     }
 
     public List<Place> findPlaceWithName(String name) {
-        return placeRepo.findPlacesByNameIsLike(name);
+        return placeRepo.findByNameRegex(name);
     }
 
     public List<Place> getPlaces(int offset, int size) {
