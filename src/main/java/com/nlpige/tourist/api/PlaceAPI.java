@@ -19,10 +19,10 @@ public class PlaceAPI {
     }
 
     @GetMapping("{name}")
-    public List<Place> findPlaceByName(@PathVariable(value = "name") String name){
-        System.out.println(name); // TODO: 06-Jan-19 debug point
+    public List<Place> findPlaceByName(@PathVariable String name) {
         return placeService.findPlaceWithName(name);
     }
+
     @GetMapping("getwithsize")
     public List<Place> gettingWithSize(@RequestHeader int offset, @RequestHeader int size){
         return placeService.getPlaces(offset, size);

@@ -12,7 +12,7 @@ public enum TourGuideType {
         this.type = type;
     }
 
-    public String getType() {
+    public String toString() {
         return type;
     }
 }
