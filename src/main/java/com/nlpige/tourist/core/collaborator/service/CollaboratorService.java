@@ -70,8 +70,8 @@ public class CollaboratorService {
     }
 
     public OTP generateOTP(String email) {
-        Optional<Collaborator> traveler = collaboratorRepo.findByEmail(email);
-        if (!traveler.isPresent()) {
+        Optional<Collaborator> collaborator = collaboratorRepo.findByEmail(email);
+        if (!collaborator.isPresent()) {
             throw new NotFoundException();
         }
 
