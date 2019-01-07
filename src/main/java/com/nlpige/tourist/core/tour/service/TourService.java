@@ -124,4 +124,10 @@ public class TourService {
         }
         return tours;
     }
+
+    public List<Tour> findTourByName(String name) {
+        System.out.println(name);
+        System.out.println(tourRepo.findByPlace_Name(name).toString());
+        return tourRepo.findByPlace_Name(name);
+    }
 }
