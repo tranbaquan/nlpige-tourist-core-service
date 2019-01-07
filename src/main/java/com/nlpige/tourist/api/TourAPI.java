@@ -67,4 +67,8 @@ public class TourAPI {
         return tourService.getAllRegisteredCollaborator(tourId);
     }
 
+    @GetMapping("/test")
+    public List<Tour> myTours(@RequestHeader String email) {
+        return tourService.myTours(email);
+    }
 }

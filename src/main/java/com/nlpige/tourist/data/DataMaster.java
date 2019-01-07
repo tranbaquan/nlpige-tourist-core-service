@@ -14,8 +14,6 @@ import com.nlpige.tourist.core.traveler.model.Traveler;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.data.mongodb.core.MongoOperations;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -363,7 +361,7 @@ public class DataMaster {
                 traveler1,
                 collaborator1,
                 LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true
+                190, true, false
         );
 
         Tour tour2 = new Tour("tour2",
@@ -371,63 +369,63 @@ public class DataMaster {
                 traveler2,
                 collaborator2,
                 LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true
+                190, true, false
         );
         Tour tour3 = new Tour("tour3",
                 place3,
                 traveler3,
                 collaborator3,
                 LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true
+                190, true, true
         );
         Tour tour4= new Tour("tour4",
                 place4,
                 traveler4,
                 collaborator4,
                 LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true
+                190, true, true
         );
         Tour tour5 = new Tour("tour5",
                 place5,
                 traveler5,
                 collaborator5,
                 LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true
+                190, true, false
         );
         Tour tour6 = new Tour("tour6",
                 place6,
                 traveler6,
                 collaborator6,
                 LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true
+                190, true, false
         );
         Tour tour7 = new Tour("tour7",
                 place7,
                 traveler7,
                 collaborator7,
                 LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true
+                190, true, true
         );
         Tour tour8 = new Tour("tour8",
                 place8,
                 traveler8,
                 collaborator8,
                 LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true
+                190, true, false
         );
         Tour tour9 = new Tour("tour9",
                 place9,
                 traveler9,
                 collaborator9,
                 LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true
+                190, true, true
         );
         Tour tour10 = new Tour("tour10",
                 place10,
                 traveler10,
                 collaborator10,
                 LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true
+                190, true, false
         );
 
         mongoOperations.save(tour1);

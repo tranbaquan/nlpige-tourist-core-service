@@ -46,7 +46,7 @@ public class TourService {
     }
 
     public Tour createTour(Tour tour) {
-        if (!tour.getTourGuide().equals(null)) tour.setAccepted(true);
+        if (!tour.getTourGuide().equals(null)) tour.setAccept(true);
         tour = tourRepo.save(tour);
         return tour;
     }
@@ -56,7 +56,7 @@ public class TourService {
         Collaborator collaborator = collaboratorService.getCollaborator(email);
         if (tour.getTourGuide() == null) {
             tour.setTourGuide(collaborator);
-            tour.setAccepted(true);
+            tour.setAccept(true);
             return tourRepo.save(tour);
         }
 
@@ -68,7 +68,7 @@ public class TourService {
     }
 
     public void deleteTour(String id) {
-        if (getTour(id).isAccepted()) {
+        if (getTour(id).isAccept()) {
             throw new CannotDeleteTour();
         }
         tourRepo.deleteById(id);
@@ -108,9 +108,15 @@ public class TourService {
 
     public boolean hadTour(String tourGuideEmail, String travelerEmail) {
         try {
-            return tourRepo.findFirstByTourGuide_EmailAndTraveler_Email(tourGuideEmail, travelerEmail).isAccepted();
+            return tourRepo.findFirstByTourGuide_EmailAndTraveler_Email(tourGuideEmail, travelerEmail).isAccept();
         } catch (NullPointerException e) {
             return false;
         }
+    }
+
+    public List<Tour> myTours(String email) {
+        List<Tour> tours = tourRepo.findByTraveler_EmailOrderByStartDateDesc(email);
+        if (tours.isEmpty()) tours = tourRepo.findByTourGuide_EmailOrderByStartDateDesc(email);
+        return tours;
     }
 }

@@ -22,11 +22,7 @@ public class ReportService {
 
     public List<Report> getReports(String senderEmail, String reportedEmail) {
         if (tourService.hadTour(senderEmail, reportedEmail)) {
-            try {
-                return reportRepo.findBySenderEmailAndReportedEmail(senderEmail, reportedEmail);
-            } catch (NullPointerException e) {
-                return Collections.emptyList();
-            }
+            return reportRepo.findBySenderEmailAndReportedEmail(senderEmail, reportedEmail);
         }
         return Collections.emptyList();
 
