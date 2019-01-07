@@ -121,4 +121,20 @@ public class CollaboratorService {
         collaborator.secureData();
         return collaborator;
     }
+
+    public Collaborator updateInformation(Collaborator collaborator) {
+        UserInformationVerifier.verifyCustomer(collaborator);
+        Optional<Collaborator> collaboratorOptional = collaboratorRepo.findByEmail(collaborator.getEmail());
+        if (!collaboratorOptional.isPresent()) {
+            throw new NotFoundException();
+        }
+
+        // TODO: 07-Jan-19 Check to make sure there is no null field of param traveler
+        Collaborator collaborator1Data = collaboratorOptional.get();
+        collaborator.setPassword(collaborator1Data.getPassword());
+        collaboratorRepo.deleteByEmail(collaborator.getEmail());
+        collaboratorRepo.save(collaborator);
+        collaborator.secureData();
+        return collaborator;
+    }
 }

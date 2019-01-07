@@ -49,4 +49,9 @@ public class TravelerAPI {
     public Traveler changeUserPassword(@RequestHeader String email, @RequestHeader String oldPassword, @RequestHeader String newPassword) {
         return travelerService.changeUserPassword(email, oldPassword, newPassword);
     }
+
+    @PutMapping(value = "updateinfor")
+    public Traveler updateInformation(@RequestBody Traveler traveler) {
+        return travelerService.updateInformation(traveler);
+    }
 }

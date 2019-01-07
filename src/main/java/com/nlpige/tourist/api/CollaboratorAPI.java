@@ -49,4 +49,9 @@ public class CollaboratorAPI {
     public Collaborator changeUserPassword(@RequestHeader String email, @RequestHeader String oldPassword, @RequestHeader String newPassword) {
         return collaboratorService.changeUserPassword(email, oldPassword, newPassword);
     }
+
+    @PutMapping(value = "updateinfor")
+    public Collaborator updateInformation(@RequestBody Collaborator collaborator) {
+        return collaboratorService.updateInformation(collaborator);
+    }
 }

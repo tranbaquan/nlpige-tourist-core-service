@@ -21,6 +21,6 @@ public class Tour {
     private Traveler traveler;
     private Collaborator tourGuide;
     private LocalDateTime startDate;
-    private Price price;
+    private double price;
     private boolean isAccepted;
 }
