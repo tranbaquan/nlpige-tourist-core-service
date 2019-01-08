@@ -65,4 +65,19 @@ public class TourAPI {
     public List<Collaborator> getAllRegisteredCollaborator(@RequestHeader String tourId) {
         return tourService.getAllRegisteredCollaborator(tourId);
     }
+
+    @GetMapping(value = "{name}")
+    public List<Tour> findByName(@PathVariable String name) {
+        return tourService.findTourByName(name);
+    }
+
+    @GetMapping(value = "allcollaboratorpendingtours")
+    public List<Tour> getCollaboratorPendingTours(@RequestHeader String collaboratorEmail) {
+        return tourService.getAllCollaboratorPendingTours(collaboratorEmail);
+    }
+
+    @GetMapping(value = "collaboratorpendingtours")
+    public List<Tour> getCollaboratorPendingTours(@RequestHeader String collaboratorEmail, @RequestHeader int offset, @RequestHeader int size) {
+        return tourService.getCollaboratorPendingTours(collaboratorEmail, offset, size);
+    }
 }
