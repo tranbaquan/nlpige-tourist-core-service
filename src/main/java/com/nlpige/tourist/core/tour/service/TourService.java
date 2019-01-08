@@ -28,6 +28,8 @@ public class TourService {
     PlaceRepository placeRepo;
     @Autowired
     TravelerService travelerService;
+    @Autowired
+    PriceService priceService;
 
     public Tour getTour(String tourId) {
         Optional<Tour> tour = tourRepo.findById(tourId);
@@ -55,6 +57,7 @@ public class TourService {
         Collaborator collaborator = collaboratorService.getCollaborator(email);
         if (tour.getTourGuide() == null) {
             tour.setTourGuide(collaborator);
+            tour.setPrice(priceService.getPrice(collaborator.getType().toString()));
             tour.setAccepted(true);
             tourRegisteringRepository.deleteAllByTour_Id(tourId); // TODO: 07-Jan-19 Not tested yet
             return tourRepo.save(tour);
@@ -120,5 +123,11 @@ public class TourService {
             tours = tourRepo.findByTourGuide_EmailOrderByStartDateDesc(email);
         }
         return tours;
+    }
+
+    public List<Tour> findTourByName(String name) {
+        System.out.println(name);
+        System.out.println(tourRepo.findByPlace_Name(name).toString());
+        return tourRepo.findByPlace_Name(name);
     }
 }

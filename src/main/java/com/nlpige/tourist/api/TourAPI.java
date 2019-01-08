@@ -71,4 +71,9 @@ public class TourAPI {
     public List<Tour> myTours(@RequestHeader String email) {
         return tourService.myTours(email);
     }
+
+    @GetMapping("{name}")
+    public List<Tour> findByName(@PathVariable String name) {
+        return tourService.findTourByName(name);
+    }
 }
