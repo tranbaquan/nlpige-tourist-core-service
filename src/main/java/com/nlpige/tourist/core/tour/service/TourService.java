@@ -38,11 +38,11 @@ public class TourService {
     }
 
     public List<Tour> getTravelerTours(String email) {
-        return tourRepo.findByTraveler_Email(email);
+        return tourRepo.findByTraveler_EmailOrderByStartDateDesc(email);
     }
 
     public List<Tour> getCollaboratorTours(String email) {
-        return tourRepo.findByTourGuide_Email(email);
+        return tourRepo.findByTourGuide_EmailOrderByStartDateDesc(email);
     }
 
     public Tour createTour(Tour tour) {
@@ -112,13 +112,5 @@ public class TourService {
         } catch (NullPointerException e) {
             return false;
         }
-    }
-
-    public List<Tour> myTours(String email) {
-        List<Tour> tours = tourRepo.findByTraveler_EmailOrderByStartDateDesc(email);
-        if (tours.isEmpty()) {
-            tours = tourRepo.findByTourGuide_EmailOrderByStartDateDesc(email);
-        }
-        return tours;
     }
 }

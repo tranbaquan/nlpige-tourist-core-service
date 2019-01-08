@@ -15,7 +15,7 @@ public class TourAPI {
     @Autowired
     TourService tourService;
 
-    @GetMapping(value = "/mytour")
+    @GetMapping(value = "/mytours")
     public List<Tour> getUserTour(@RequestHeader String email) {
         List<Tour> tours = tourService.getTravelerTours(email);
 
@@ -65,10 +65,5 @@ public class TourAPI {
     @GetMapping(value = "getallregisteredcollaborator")
     public List<Collaborator> getAllRegisteredCollaborator(@RequestHeader String tourId) {
         return tourService.getAllRegisteredCollaborator(tourId);
-    }
-
-    @GetMapping("/mytours")
-    public List<Tour> myTours(@RequestHeader String email) {
-        return tourService.myTours(email);
     }
 }
