@@ -10,6 +10,7 @@ import com.nlpige.tourist.core.customer.model.Languages;
 import com.nlpige.tourist.core.tour.model.Place;
 import com.nlpige.tourist.core.tour.model.Price;
 import com.nlpige.tourist.core.tour.model.Tour;
+import com.nlpige.tourist.core.tour.model.TourRegisteringEntity;
 import com.nlpige.tourist.core.traveler.model.Traveler;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -77,7 +78,7 @@ public class DataMaster {
         Traveler traveler5 = new Traveler("Quan",
                 "Trần Bá ",
                 "415007076",
-                "baquan@gmail.com",
+                "tranbaquan.tbq@gmail.com",
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
@@ -255,6 +256,7 @@ public class DataMaster {
                 TourGuideType.PROFESSOR,
                 "0393939393");
 
+
         mongoOperations.save(collaborator1);
         mongoOperations.save(collaborator2);
         mongoOperations.save(collaborator3);
@@ -364,7 +366,6 @@ public class DataMaster {
                 LocalDateTime.of(2018, 12, 22, 9, 00),
                 190, true, false, "test"
         );
-
         Tour tour2 = new Tour("tour2",
                 place2,
                 traveler2,
@@ -379,7 +380,7 @@ public class DataMaster {
                 LocalDateTime.of(2018, 12, 22, 9, 00),
                 190, true, true, "test"
         );
-        Tour tour4= new Tour("tour4",
+        Tour tour4 = new Tour("tour4",
                 place4,
                 traveler4,
                 collaborator4,
@@ -429,6 +430,107 @@ public class DataMaster {
                 190, true, false, "test"
         );
 
+        Tour tour11 = new Tour("tour11",
+                place1,
+                traveler5,
+                null,
+                LocalDateTime.now().plusDays(2),
+                190,
+                false,
+                false,
+                "Test tour"
+        );
+        Tour tour12 = new Tour("tour12",
+                place2,
+                traveler5,
+                null,
+                LocalDateTime.now().plusDays(5),
+                190,
+                false,
+                false,
+                "Test tour"
+        );
+        Tour tour13 = new Tour("tour12",
+                place3,
+                traveler5,
+                null,
+                LocalDateTime.now().plusDays(5),
+                190,
+                false,
+                false,
+                "Test tour"
+        );
+        Tour tour14 = new Tour("tour12",
+                place4,
+                traveler5,
+                null,
+                LocalDateTime.now().plusDays(5),
+                190,
+                false,
+                false,
+                "Test tour"
+        );
+        Tour tour15 = new Tour("tour12",
+                place5,
+                traveler5,
+                null,
+                LocalDateTime.now().plusDays(5),
+                190,
+                false,
+                false,
+                "Test tour"
+        );
+        Tour tour16 = new Tour("tour12",
+                place6,
+                traveler5,
+                null,
+                LocalDateTime.now().plusDays(5),
+                190,
+                false,
+                false,
+                "Test tour"
+        );
+        Tour tour17 = new Tour("tour12",
+                place7,
+                traveler5,
+                null,
+                LocalDateTime.now().plusDays(5),
+                190,
+                false,
+                false,
+                "Test tour"
+        );
+        Tour tour18 = new Tour("tour12",
+                place8,
+                traveler5,
+                null,
+                LocalDateTime.now().plusDays(5),
+                190,
+                false,
+                false,
+                "Test tour"
+        );
+        Tour tour19 = new Tour("tour12",
+                place9,
+                traveler5,
+                null,
+                LocalDateTime.now().plusDays(5),
+                190,
+                false,
+                false,
+                "Test tour"
+        );
+        Tour tour20 = new Tour("tour12",
+                place10,
+                traveler5,
+                null,
+                LocalDateTime.now().plusDays(5),
+                190,
+                false,
+                false,
+                "Test tour"
+        );
+
         mongoOperations.save(tour1);
         mongoOperations.save(tour2);
         mongoOperations.save(tour3);
@@ -439,6 +541,16 @@ public class DataMaster {
         mongoOperations.save(tour8);
         mongoOperations.save(tour9);
         mongoOperations.save(tour10);
+        mongoOperations.save(tour11);
+        mongoOperations.save(tour12);
+        mongoOperations.save(tour13);
+        mongoOperations.save(tour14);
+        mongoOperations.save(tour15);
+        mongoOperations.save(tour16);
+        mongoOperations.save(tour17);
+        mongoOperations.save(tour18);
+        mongoOperations.save(tour19);
+        mongoOperations.save(tour20);
 
         Price price1 = new Price(TourGuideType.RESIDENT, 300);
         Price price2 = new Price(TourGuideType.STUDENT, 250);
@@ -449,6 +561,18 @@ public class DataMaster {
         mongoOperations.save(price2);
         mongoOperations.save(price3);
         mongoOperations.save(price4);
+
+        TourRegisteringEntity entity1 = new TourRegisteringEntity(tour15, collaborator10);
+        TourRegisteringEntity entity2 = new TourRegisteringEntity(tour16, collaborator10);
+        TourRegisteringEntity entity3 = new TourRegisteringEntity(tour17, collaborator10);
+        TourRegisteringEntity entity4 = new TourRegisteringEntity(tour18, collaborator10);
+        TourRegisteringEntity entity5 = new TourRegisteringEntity(tour20, collaborator10);
+
+        mongoOperations.save(entity1);
+        mongoOperations.save(entity2);
+        mongoOperations.save(entity3);
+        mongoOperations.save(entity4);
+        mongoOperations.save(entity5);
     }
     // TODO Add more data master. Upload image to firebase
 }

@@ -8,8 +8,8 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 
 @Configuration
 public class SpringMongoConfig {
-    public @Bean
-    MongoTemplate mongoTemplate() {
+    @Bean
+    public MongoTemplate mongoTemplate() {
         MongoTemplate mongoTemplate = new MongoTemplate(
                 new MongoClient(
                         new MongoClientURI("mongodb+srv://tranbaquan:tranbaquan@nltour-5iwl5.mongodb.net/test?retryWrites=true")
