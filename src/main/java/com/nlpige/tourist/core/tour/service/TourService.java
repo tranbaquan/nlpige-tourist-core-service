@@ -85,7 +85,9 @@ public class TourService {
         if (tourRegisteringRepository.existsByTour_IdAndCollaborator_Email(tourId, collaboratorEmail)) {
             return null;
         }
-        TourRegisteringEntity result = new TourRegisteringEntity(getTour(tourId), collaboratorService.getCollaborator(collaboratorEmail));
+        Collaborator collaborator = collaboratorService.getCollaborator(collaboratorEmail);
+        collaborator.secureData();
+        TourRegisteringEntity result = new TourRegisteringEntity(getTour(tourId), collaborator);
         tourRegisteringRepository.save(result);
         return result;
     }

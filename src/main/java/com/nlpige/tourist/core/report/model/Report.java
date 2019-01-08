@@ -21,5 +21,4 @@ public class Report {
     private String reportedEmail;
     private String content;
     private LocalDateTime reportTime;
-    //todo deal with report service
 }
