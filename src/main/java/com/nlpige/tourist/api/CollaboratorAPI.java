@@ -40,12 +40,12 @@ public class CollaboratorAPI {
         return collaboratorService.validateOTP(otp);
     }
 
-    @PostMapping(value = "password/change")
+    @PutMapping(value = "password/change")
     public Collaborator changePassword(@RequestHeader String email, @RequestHeader String newPassword, @RequestHeader String identifier) {
         return collaboratorService.changePassword(email, newPassword, identifier);
     }
 
-    @PostMapping(value = "password/changeuserpassword")
+    @PutMapping(value = "password/changeuserpassword")
     public Collaborator changeUserPassword(@RequestHeader String email, @RequestHeader String oldPassword, @RequestHeader String newPassword) {
         return collaboratorService.changeUserPassword(email, oldPassword, newPassword);
     }
