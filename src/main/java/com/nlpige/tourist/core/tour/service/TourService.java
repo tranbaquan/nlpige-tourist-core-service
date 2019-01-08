@@ -117,14 +117,6 @@ public class TourService {
         }
     }
 
-    public List<Tour> myTours(String email) {
-        List<Tour> tours = tourRepo.findByTraveler_EmailOrderByStartDateDesc(email);
-        if (tours.isEmpty()) {
-            tours = tourRepo.findByTourGuide_EmailOrderByStartDateDesc(email);
-        }
-        return tours;
-    }
-
     public List<Tour> findTourByName(String name) {
         System.out.println(tourRepo.findByPlace_Name(name).toString());
         return tourRepo.findByPlace_Name(name);

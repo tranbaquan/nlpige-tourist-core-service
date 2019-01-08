@@ -66,11 +66,6 @@ public class TourAPI {
         return tourService.getAllRegisteredCollaborator(tourId);
     }
 
-    @GetMapping(value = "/mytours")
-    public List<Tour> myTours(@RequestHeader String email) {
-        return tourService.myTours(email);
-    }
-
     @GetMapping(value = "{name}")
     public List<Tour> findByName(@PathVariable String name) {
         return tourService.findTourByName(name);
