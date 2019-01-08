@@ -24,4 +24,5 @@ public class Tour {
     private double price;
     private boolean accepted;
     private boolean paid;
+    private String description;
 }

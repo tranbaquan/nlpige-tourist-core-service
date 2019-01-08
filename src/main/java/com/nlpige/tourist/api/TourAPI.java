@@ -15,7 +15,7 @@ public class TourAPI {
     @Autowired
     TourService tourService;
 
-    @GetMapping(value = "/mytour")
+    @GetMapping(value = "/mytours")
     public List<Tour> getUserTour(@RequestHeader String email) {
         List<Tour> tours = tourService.getTravelerTours(email);
 
