@@ -41,6 +41,11 @@ public class TourAPI {
         return tourService.registerTour(tourId, collaboratorEmail);
     }
 
+    @PostMapping(value = "cancelregister")
+    public boolean cancelTourRegistering(@RequestHeader String tourId, @RequestHeader String collaboratorEmail) {
+        return tourService.cancelTourRegistering(tourId, collaboratorEmail);
+    }
+
     @PostMapping
     public Tour createTour(@RequestBody Tour tour) {
         return tourService.createTour(tour);

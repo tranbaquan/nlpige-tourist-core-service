@@ -13,6 +13,9 @@ public interface TourRepository extends MongoRepository<Tour, String> {
 
     List<Tour> findByTourGuideNull();
 
+    @Query("{'place_name': {$regex : ?0, $options: 'i'}}")
+    List<Tour> findByTourGuideNullAndPlace_Name(String name);
+
     Tour findFirstByTourGuide_EmailAndTraveler_Email(String tourGuideEmail, String travelerEmail);
 
     List<Tour> findByTraveler_EmailOrderByStartDateDesc(String travelerEmail);

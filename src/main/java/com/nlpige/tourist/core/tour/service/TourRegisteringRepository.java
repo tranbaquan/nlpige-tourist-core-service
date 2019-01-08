@@ -22,5 +22,7 @@ public interface TourRegisteringRepository extends MongoRepository<TourRegisteri
 
     List<TourRegisteringEntity> findAllByCollaborator_Email(String email);
 
+    boolean deleteByTour_IdAndCollaborator_Email(String tourId, String email);
+
     void deleteAllByTour_Id(String tourId);
 }
