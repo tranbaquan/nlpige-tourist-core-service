@@ -14,18 +14,19 @@ public class CollaboratorAPI {
     CollaboratorService collaboratorService;
 
     @PostMapping
-    public Collaborator createTraveler(@RequestBody Collaborator collaborator) {
+    public Collaborator createCollaborator(@RequestBody Collaborator collaborator) {
         return collaboratorService.createCollaborator(collaborator);
     }
 
     @GetMapping
-    public Collaborator getTraveler(@RequestHeader String email) {
+    public Collaborator getCollaborator(@RequestHeader String email) {
         return collaboratorService.getCollaborator(email);
     }
 
+    // replaced traveler to collaborator
     @PostMapping(value = "login")
-    public Collaborator login(@RequestBody Collaborator traveler) {
-        return collaboratorService.login(traveler);
+    public Collaborator login(@RequestBody Collaborator collaborator) {
+        return collaboratorService.login(collaborator);
     }
 
     @GetMapping(value = "otp")

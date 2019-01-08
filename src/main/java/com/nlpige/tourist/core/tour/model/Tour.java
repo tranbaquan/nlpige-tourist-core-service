@@ -22,7 +22,7 @@ public class Tour {
     private Collaborator tourGuide;
     private LocalDateTime startDate;
     private double price;
-    private boolean accepted;
+    private boolean isAccepted;
     private boolean paid;
     private String description;
 }

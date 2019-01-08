@@ -85,7 +85,9 @@ public class TourService {
         if (tourRegisteringRepository.existsByTour_IdAndCollaborator_Email(tourId, collaboratorEmail)) {
             return null;
         }
-        TourRegisteringEntity result = new TourRegisteringEntity(getTour(tourId), collaboratorService.getCollaborator(collaboratorEmail));
+        Collaborator collaborator = collaboratorService.getCollaborator(collaboratorEmail);
+        collaborator.secureData();
+        TourRegisteringEntity result = new TourRegisteringEntity(getTour(tourId), collaborator);
         tourRegisteringRepository.save(result);
         return result;
     }
@@ -121,26 +123,4 @@ public class TourService {
         }
     }
 
-    public List<Tour> findTourByName(String name) {
-        System.out.println(tourRepo.findByPlace_Name(name).toString());
-        return tourRepo.findByPlace_Name(name);
-    }
-
-    public List<Tour> getAllCollaboratorPendingTours(String collaboratorEmail) {
-        List<TourRegisteringEntity> tourRegisteringEntities = tourRegisteringRepository.findAllByCollaborator_Email(collaboratorEmail);
-        List<Tour> tours = new ArrayList<>();
-        for (TourRegisteringEntity tourRegisteringEntity : tourRegisteringEntities) {
-            tours.add(tourRegisteringEntity.getTour());
-        }
-        return tours;
-    }
-
-    public List<Tour> getCollaboratorPendingTours(String collaboratorEmail, int offset, int size) {
-        List<TourRegisteringEntity> tourRegisteringEntities = tourRegisteringRepository.findAllByCollaborator_Email(collaboratorEmail, PageRequest.of(offset, size));
-        List<Tour> tours = new ArrayList<>();
-        for (TourRegisteringEntity tourRegisteringEntity : tourRegisteringEntities) {
-            tours.add(tourRegisteringEntity.getTour());
-        }
-        return tours;
-    }
 }
