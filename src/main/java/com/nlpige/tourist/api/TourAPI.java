@@ -33,7 +33,6 @@ public class TourAPI {
 
     @GetMapping(value = "/waiting")
     public List<Tour> getWaiting() {
-        // TODO
         return tourService.getWaiting();
     }
 
