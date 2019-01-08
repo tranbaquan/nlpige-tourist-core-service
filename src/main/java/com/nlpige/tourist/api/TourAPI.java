@@ -15,7 +15,7 @@ public class TourAPI {
     @Autowired
     TourService tourService;
 
-    @GetMapping(value = "/mytour")
+    @GetMapping(value = "/mytours")
     public List<Tour> getUserTour(@RequestHeader String email) {
         List<Tour> tours = tourService.getTravelerTours(email);
 
@@ -33,7 +33,6 @@ public class TourAPI {
 
     @GetMapping(value = "/waiting")
     public List<Tour> getWaiting() {
-        // TODO
         return tourService.getWaiting();
     }
 
@@ -65,15 +64,5 @@ public class TourAPI {
     @GetMapping(value = "getallregisteredcollaborator")
     public List<Collaborator> getAllRegisteredCollaborator(@RequestHeader String tourId) {
         return tourService.getAllRegisteredCollaborator(tourId);
-    }
-
-    @GetMapping("/mytours")
-    public List<Tour> myTours(@RequestHeader String email) {
-        return tourService.myTours(email);
-    }
-
-    @GetMapping("{name}")
-    public List<Tour> findByName(@PathVariable String name) {
-        return tourService.findTourByName(name);
     }
 }
