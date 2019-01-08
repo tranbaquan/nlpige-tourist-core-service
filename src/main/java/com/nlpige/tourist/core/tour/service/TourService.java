@@ -90,6 +90,10 @@ public class TourService {
         return result;
     }
 
+    public boolean cancelTourRegistering(String tourId, String collaboratorEmail) {
+        return tourRegisteringRepository.deleteByTour_IdAndCollaborator_Email(tourId, collaboratorEmail);
+    }
+
     public List<Collaborator> getAllRegisteredCollaborator(String tourId, int offset,
                                                            int size) {
         List<TourRegisteringEntity> tourRegisteringEntities = tourRegisteringRepository.findAllByTour_Id(tourId, PageRequest.of(offset, size));
