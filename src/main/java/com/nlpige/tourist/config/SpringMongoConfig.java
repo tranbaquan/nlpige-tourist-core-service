@@ -12,7 +12,7 @@ public class SpringMongoConfig {
     public MongoTemplate mongoTemplate() {
         MongoTemplate mongoTemplate = new MongoTemplate(
                 new MongoClient(
-                        new MongoClientURI("mongodb+srv://tranbaquan:tranbaquan@nltour-5iwl5.mongodb.net/test?retryWrites=true")
+                        new MongoClientURI("mongodb+srv://nltour_webservice :nltour_webservice @nltour-5iwl5.mongodb.net/test?retryWrites=true")
                 ), "nltour");
         return mongoTemplate;
     }
