@@ -8,6 +8,7 @@ import com.nlpige.tourist.core.traveler.service.TravelerService;
 import com.nlpige.tourist.exception.CannotDeleteTour;
 import com.nlpige.tourist.exception.CollaboratorExistence;
 import com.nlpige.tourist.exception.NLPigeException;
+import com.nlpige.tourist.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -123,4 +124,15 @@ public class TourService {
         }
     }
 
+    public List<Tour> getPendingTours(String email) {
+        List<TourRegisteringEntity> data = tourRegisteringRepository.findAllByCollaborator_Email(email);
+        if(data != null) {
+            List<Tour> tours = new ArrayList<>();
+            for (TourRegisteringEntity e: data) {
+                tours.add(e.getTour());
+            }
+            return tours;
+        }
+        throw new NotFoundException();
+    }
 }
