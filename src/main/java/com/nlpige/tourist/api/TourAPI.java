@@ -41,7 +41,7 @@ public class TourAPI {
         return tourService.registerTour(tourId, collaboratorEmail);
     }
 
-    @PostMapping(value = "cancelregister")
+    @DeleteMapping(value = "registering/cancel")
     public boolean cancelTourRegistering(@RequestHeader String tourId, @RequestHeader String collaboratorEmail) {
         return tourService.cancelTourRegistering(tourId, collaboratorEmail);
     }
@@ -61,14 +61,14 @@ public class TourAPI {
         tourService.deleteTour(id);
     }
 
-    @GetMapping(value = "getregisteredcollaborator")
-    public List<Collaborator> getAllRegisteredCollaborator(@RequestHeader String tourId, @RequestHeader int offset, @RequestHeader int size) {
-        return tourService.getAllRegisteredCollaborator(tourId, offset, size);
-    }
-
-    @GetMapping(value = "getallregisteredcollaborator")
+    @GetMapping(value = "registering/tour/all")
     public List<Collaborator> getAllRegisteredCollaborator(@RequestHeader String tourId) {
         return tourService.getAllRegisteredCollaborator(tourId);
+    }
+
+    @GetMapping(value = "mytours/pending")
+    public List<Tour> getPendingTours(@RequestHeader String email){
+        return tourService.getPendingTours(email);
     }
 
 }
