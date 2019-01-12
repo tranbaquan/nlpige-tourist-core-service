@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "collaborator")
-public class CollaboratorAPI {
+public class CollaboratorApi {
     @Autowired
     CollaboratorService collaboratorService;
 
@@ -23,10 +23,19 @@ public class CollaboratorAPI {
         return collaboratorService.getCollaborator(email);
     }
 
-    // replaced traveler to collaborator
+    @PutMapping
+    public Collaborator updateCollaborator(@RequestBody Collaborator collaborator) {
+        return collaboratorService.updateCollaborator(collaborator);
+    }
+
     @PostMapping(value = "login")
     public Collaborator login(@RequestBody Collaborator collaborator) {
         return collaboratorService.login(collaborator);
+    }
+
+    @PostMapping(value = "otp")
+    public boolean validateOTP(@RequestBody OTP otp) {
+        return collaboratorService.validateOTP(otp);
     }
 
     @GetMapping(value = "otp")
@@ -36,23 +45,13 @@ public class CollaboratorAPI {
         return otp;
     }
 
-    @PostMapping(value = "otp")
-    public boolean validateOTP(@RequestBody OTP otp) {
-        return collaboratorService.validateOTP(otp);
+    @PutMapping(value = "otp")
+    public Collaborator changePasswordByOtp(@RequestHeader String email, @RequestHeader String newPassword, @RequestHeader String identifier) {
+        return collaboratorService.changePasswordByOtp(email, newPassword, identifier);
     }
 
-    @PutMapping(value = "password/change")
-    public Collaborator changePassword(@RequestHeader String email, @RequestHeader String newPassword, @RequestHeader String identifier) {
-        return collaboratorService.changePassword(email, newPassword, identifier);
-    }
-
-    @PutMapping(value = "password/changeuserpassword")
+    @PutMapping(value = "password")
     public Collaborator changeUserPassword(@RequestHeader String email, @RequestHeader String oldPassword, @RequestHeader String newPassword) {
         return collaboratorService.changeUserPassword(email, oldPassword, newPassword);
-    }
-
-    @PutMapping(value = "updateinfor")
-    public Collaborator updateInformation(@RequestBody Collaborator collaborator) {
-        return collaboratorService.updateInformation(collaborator);
     }
 }

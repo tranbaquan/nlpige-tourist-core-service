@@ -41,11 +41,11 @@ public class TourService {
     }
 
     public List<Tour> getTravelerTours(String email) {
-        return tourRepo.findByTraveler_EmailOrderByStartDateDesc(email);
+        return tourRepo.findByTraveler_EmailOrderByStartDateAsc(email);
     }
 
     public List<Tour> getCollaboratorTours(String email) {
-        return tourRepo.findByTourGuide_EmailOrderByStartDateDesc(email);
+        return tourRepo.findByTourGuide_EmailOrderByStartDateAsc(email);
     }
 
     public Tour createTour(Tour tour) {
@@ -67,7 +67,7 @@ public class TourService {
         throw new CollaboratorExistence();
     }
 
-    public List<Tour> getAll() {
+    public List<Tour> getAllTours() {
         return tourRepo.findAll();
     }
 
@@ -78,7 +78,7 @@ public class TourService {
         tourRepo.deleteById(id);
     }
 
-    public List<Tour> getWaiting() {
+    public List<Tour> getWaitingTours() {
         return tourRepo.findByTourGuideNull();
     }
 
@@ -97,17 +97,8 @@ public class TourService {
         return tourRegisteringRepository.deleteByTour_IdAndCollaborator_Email(tourId, collaboratorEmail);
     }
 
-    public List<Collaborator> getAllRegisteredCollaborator(String tourId, int offset,
-                                                           int size) {
-        List<TourRegisteringEntity> tourRegisteringEntities = tourRegisteringRepository.findAllByTour_Id(tourId, PageRequest.of(offset, size));
-        List<Collaborator> collaborators = new ArrayList<>();
-        for (TourRegisteringEntity tourRegisteringEntity : tourRegisteringEntities) {
-            collaborators.add(tourRegisteringEntity.getCollaborator());
-        }
-        return collaborators;
-    }
 
-    public List<Collaborator> getAllRegisteredCollaborator(String tourId) {
+    public List<Collaborator> getRegisteringCollaborators(String tourId) {
         List<TourRegisteringEntity> tourRegisteringEntities = tourRegisteringRepository.findAllByTour_Id(tourId);
         List<Collaborator> collaborators = new ArrayList<>();
         for (TourRegisteringEntity tourRegisteringEntity : tourRegisteringEntities) {
@@ -116,7 +107,7 @@ public class TourService {
         return collaborators;
     }
 
-    public boolean hadTour(String tourGuideEmail, String travelerEmail) {
+    public boolean isSameTour(String tourGuideEmail, String travelerEmail) {
         try {
             return tourRepo.findFirstByTourGuide_EmailAndTraveler_Email(tourGuideEmail, travelerEmail).isAccepted();
         } catch (NullPointerException e) {

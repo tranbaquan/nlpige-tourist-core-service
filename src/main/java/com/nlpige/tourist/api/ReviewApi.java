@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping(value = "review")
-public class ReviewAPI {
+public class ReviewApi {
     @Autowired
     ReviewService reviewService;
 

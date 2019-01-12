@@ -21,7 +21,7 @@ public class ReportService {
     }
 
     public List<Report> getReports(String senderEmail, String reportedEmail) {
-        if (tourService.hadTour(senderEmail, reportedEmail)) {
+        if (tourService.isSameTour(senderEmail, reportedEmail)) {
             return reportRepo.findBySenderEmailAndReportedEmail(senderEmail, reportedEmail);
         }
         return Collections.emptyList();

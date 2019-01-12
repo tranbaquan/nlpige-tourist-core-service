@@ -11,9 +11,9 @@ public interface TourRepository extends MongoRepository<Tour, String> {
 
     Tour findFirstByTourGuide_EmailAndTraveler_Email(String tourGuideEmail, String travelerEmail);
 
-    List<Tour> findByTraveler_EmailOrderByStartDateDesc(String travelerEmail);
+    List<Tour> findByTraveler_EmailOrderByStartDateAsc(String travelerEmail);
 
-    List<Tour> findByTourGuide_EmailOrderByStartDateDesc(String tourGuideEmail);
+    List<Tour> findByTourGuide_EmailOrderByStartDateAsc(String tourGuideEmail);
 
 
 }

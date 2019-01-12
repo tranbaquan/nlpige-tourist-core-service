@@ -24,22 +24,6 @@ public class TravelerService {
     @Autowired
     OTPService otpService;
 
-    public Traveler login(Traveler traveler) {
-        UserInformationVerifier.verifyCustomer(traveler);
-        Optional<Traveler> data = travelerRepo.findByEmail(traveler.getEmail());
-        if (!data.isPresent()) {
-            throw new NotFoundException();
-        }
-
-        if (!Hashing.verifyPassword(data.get().getPassword(), traveler.getPassword().toCharArray())) {
-            throw new NLPigeException();
-        }
-
-        traveler = data.get();
-        traveler.secureData();
-        return traveler;
-    }
-
     public Traveler createTraveler(Traveler traveler) {
         UserInformationVerifier.verifyCustomer(traveler);
         Optional<Traveler> data = travelerRepo.findByEmail(traveler.getEmail());
@@ -63,6 +47,38 @@ public class TravelerService {
         return traveler;
     }
 
+    public Traveler updateTraveler(Traveler traveler) {
+        UserInformationVerifier.verifyCustomer(traveler);
+        Optional<Traveler> travelerOptional = travelerRepo.findByEmail(traveler.getEmail());
+        if (!travelerOptional.isPresent()) {
+            throw new NotFoundException();
+        }
+        traveler.setPassword(travelerOptional.get().getPassword());
+        travelerRepo.deleteByEmail(traveler.getEmail());
+        travelerRepo.save(traveler);
+        traveler.secureData();
+        return traveler;
+    }
+
+    public void deleteTraveler(String email) {
+        travelerRepo.deleteByEmail(email);
+    }
+
+    public Traveler login(Traveler traveler) {
+        UserInformationVerifier.verifyCustomer(traveler);
+        Optional<Traveler> data = travelerRepo.findByEmail(traveler.getEmail());
+        if (!data.isPresent()) {
+            throw new NotFoundException();
+        }
+
+        if (!Hashing.verifyPassword(data.get().getPassword(), traveler.getPassword().toCharArray())) {
+            throw new NLPigeException();
+        }
+        traveler = data.get();
+        traveler.secureData();
+        return traveler;
+    }
+
     public OTP generateOTP(String email) {
         Optional<Traveler> traveler = travelerRepo.findByEmail(email);
         if (!traveler.isPresent()) {
@@ -79,7 +95,7 @@ public class TravelerService {
         return otpService.isCorrectOTP(otp);
     }
 
-    public Traveler changePassword(String email, String newPassword, String identifier) {
+    public Traveler changePasswordByOtp(String email, String newPassword, String identifier) {
         OTP otp = otpService.getOTP(email);
         Optional<Traveler> travelerOptional = travelerRepo.findByEmail(email);
         if (!travelerOptional.isPresent() || !Objects.equals(otp.getIdentifier(), identifier)) {
@@ -112,21 +128,6 @@ public class TravelerService {
         traveler.encryptPassword();
         travelerRepo.deleteByEmail(traveler.getEmail());
         traveler = travelerRepo.save(traveler);
-        traveler.secureData();
-        return traveler;
-    }
-
-    public Traveler updateInformation(Traveler traveler) {
-        UserInformationVerifier.verifyCustomer(traveler);
-        Optional<Traveler> travelerOptional = travelerRepo.findByEmail(traveler.getEmail());
-        if (!travelerOptional.isPresent()) {
-            throw new NotFoundException();
-        }
-
-        // TODO: 07-Jan-19 Check to make sure there is no null field of param traveler
-        traveler.setPassword(travelerOptional.get().getPassword());
-        travelerRepo.deleteByEmail(traveler.getEmail());
-        travelerRepo.save(traveler);
         traveler.secureData();
         return traveler;
     }

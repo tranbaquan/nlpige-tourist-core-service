@@ -85,7 +85,7 @@ public class CollaboratorService {
         return otpService.isCorrectOTP(otp);
     }
 
-    public Collaborator changePassword(String email, String newPassword, String identifier) {
+    public Collaborator changePasswordByOtp(String email, String newPassword, String identifier) {
         OTP otp = otpService.getOTP(email);
         Optional<Collaborator> collaboratorData = collaboratorRepo.findByEmail(email);
         if (!collaboratorData.isPresent() || !Objects.equals(otp.getIdentifier(), identifier)) {
@@ -122,7 +122,7 @@ public class CollaboratorService {
         return collaborator;
     }
 
-    public Collaborator updateInformation(Collaborator collaborator) {
+    public Collaborator updateCollaborator(Collaborator collaborator) {
         UserInformationVerifier.verifyCustomer(collaborator);
         Optional<Collaborator> collaboratorOptional = collaboratorRepo.findByEmail(collaborator.getEmail());
         if (!collaboratorOptional.isPresent()) {

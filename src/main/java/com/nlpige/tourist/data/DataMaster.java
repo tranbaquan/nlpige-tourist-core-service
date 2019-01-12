@@ -40,6 +40,7 @@ public class DataMaster {
                 "Piper", "CJ",
                 "123456789",
                 "pipercj@gmail.com",
+                "0123456789",
                 Gender.FEMALE, LocalDate.of(1990, 11, 22),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997",
                 new Address("America", "California"),
@@ -52,6 +53,7 @@ public class DataMaster {
                 "Andrew", "Jon",
                 "123456788",
                 "andrew@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1988, 11, 11),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997", new Address("America", "New York"),
                 languages,
@@ -62,6 +64,7 @@ public class DataMaster {
                 "Nguyen Ngoc Lam Bao",
                 "671605156",
                 "truong@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
@@ -71,6 +74,7 @@ public class DataMaster {
                 "Trần Thanh",
                 "216787544",
                 "haitranit1997@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
@@ -79,6 +83,7 @@ public class DataMaster {
                 "Trần Bá ",
                 "415007076",
                 "tranbaquan.tbq@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
@@ -87,6 +92,7 @@ public class DataMaster {
                 "Đinh Chí",
                 "167510743",
                 "chithien@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
@@ -95,6 +101,7 @@ public class DataMaster {
                 "Belpois",
                 "257505163",
                 "jeremiebelpois@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
@@ -103,6 +110,7 @@ public class DataMaster {
                 "Schaeffer",
                 "745576853",
                 "aelita@gmail.com",
+                "0123456789",
                 Gender.FEMALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
@@ -111,6 +119,7 @@ public class DataMaster {
                 "Della Robbia",
                 "501412357",
                 "Della Robbia@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
@@ -119,6 +128,7 @@ public class DataMaster {
                 "Stern",
                 "674283615",
                 "Stern@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 12, 13),
                 "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
                 new Address("Viet Nam", "Quan 1"),
@@ -138,123 +148,123 @@ public class DataMaster {
                 "Quan", "Trần Bá",
                 "231101668",
                 "tranbaquan1.tbq@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 11, 02),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR,
-                "0393452595");
+                TourGuideType.PROFESSOR);
 
         Collaborator collaborator2 = new Collaborator(
                 "Thiên", "Đinh Chí",
                 "123456785",
                 "dinhchithien@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 02, 02),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR,
-                "0393939393");
+                TourGuideType.PROFESSOR);
         Collaborator collaborator3 = new Collaborator(
                 "Yumi", "Ishiyama",
                 "123456785",
                 "dinhchithien@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 02, 02),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR,
-                "0393939393");
+                TourGuideType.PROFESSOR);
         Collaborator collaborator4 = new Collaborator(
                 "Bertolt", "Hoover",
                 "138470745",
                 "Hoover@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 02, 02),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR,
-                "0393939393");
+                TourGuideType.PROFESSOR);
         Collaborator collaborator5 = new Collaborator(
                 "Darius", "Zackly",
                 "384310460",
                 "Zackly@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 02, 02),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR,
-                "0393939393");
+                TourGuideType.PROFESSOR);
         Collaborator collaborator6 = new Collaborator(
                 "Reiner", "Braun",
                 "013621215",
                 "Braun@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 02, 02),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR,
-                "0393939393");
+                TourGuideType.PROFESSOR);
         Collaborator collaborator7 = new Collaborator(
                 "Armin", "Arlert",
                 "162834268",
                 "Arlert@gmail.com",
+                "0123456789",
                 Gender.FEMALE, LocalDate.of(1997, 02, 02),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR,
-                "0393939393");
+                TourGuideType.PROFESSOR);
         Collaborator collaborator8 = new Collaborator(
                 "Mikasa", "Ackerman",
                 "123456785",
                 "Ackerman@gmail.com",
+                "0123456789",
                 Gender.FEMALE, LocalDate.of(1997, 02, 02),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR,
-                "0393939393");
+                TourGuideType.PROFESSOR);
         Collaborator collaborator9 = new Collaborator(
                 "Eren ", "Yeager ",
                 "617443341",
                 "Yeager@gmail.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 02, 02),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR,
-                "0393939393");
+                TourGuideType.PROFESSOR);
         Collaborator collaborator10 = new Collaborator(
                 "William", "Dunbar",
                 "768655363",
                 "admin@nltour.com",
+                "0123456789",
                 Gender.MALE, LocalDate.of(1997, 02, 02),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR,
-                "0393939393");
+                TourGuideType.PROFESSOR);
 
 
         mongoOperations.save(collaborator1);

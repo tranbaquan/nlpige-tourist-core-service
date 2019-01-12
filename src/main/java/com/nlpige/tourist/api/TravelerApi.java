@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "traveler")
-public class TravelerAPI {
+public class TravelerApi {
     @Autowired
     TravelerService travelerService;
 
@@ -23,35 +23,35 @@ public class TravelerAPI {
         return travelerService.getTraveler(email);
     }
 
+    @PutMapping
+    public Traveler updateTraveler(@RequestBody Traveler traveler) {
+        return travelerService.updateTraveler(traveler);
+    }
+
     @PostMapping(value = "login")
     public Traveler login(@RequestBody Traveler traveler) {
         return travelerService.login(traveler);
     }
 
+    @PostMapping(value = "otp")
+    public boolean validateOtp(@RequestBody OTP otp) {
+        return travelerService.validateOTP(otp);
+    }
+
     @GetMapping(value = "otp")
-    public OTP getOTP(@RequestHeader String email, @RequestHeader String requestType) {
+    public OTP getOtp(@RequestHeader String email, @RequestHeader String requestType) {
         OTP otp = travelerService.generateOTP(email);
         SendingEmail.sendEmail(email, requestType, "Your OTP: " + otp.getOtp());
         return otp;
     }
 
-    @PostMapping(value = "otp")
-    public boolean validateOTP(@RequestBody OTP otp) {
-        return travelerService.validateOTP(otp);
+    @PutMapping(value = "otp")
+    public Traveler changePasswordByOtp(@RequestHeader String email, @RequestHeader String newPassword, @RequestHeader String identifier) {
+        return travelerService.changePasswordByOtp(email, newPassword, identifier);
     }
 
-    @PutMapping(value = "password/change")
-    public Traveler changePassword(@RequestHeader String email, @RequestHeader String newPassword, @RequestHeader String identifier) {
-        return travelerService.changePassword(email, newPassword, identifier);
-    }
-
-    @PutMapping(value = "password/changeuserpassword")
+    @PutMapping(value = "password")
     public Traveler changeUserPassword(@RequestHeader String email, @RequestHeader String oldPassword, @RequestHeader String newPassword) {
         return travelerService.changeUserPassword(email, oldPassword, newPassword);
-    }
-
-    @PutMapping(value = "updateinfor")
-    public Traveler updateInformation(@RequestBody Traveler traveler) {
-        return travelerService.updateInformation(traveler);
     }
 }

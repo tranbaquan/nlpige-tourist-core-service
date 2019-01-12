@@ -17,8 +17,8 @@ import java.time.LocalDateTime;
 public class Traveler extends Customer {
     private String passport;
 
-    public Traveler(String firstName, String lastName, String personalID, String email, Gender gender, LocalDate dob, String avatar, Address address, Languages languages, String password, LocalDateTime activeDate, String passport) {
-        super(firstName, lastName, personalID, email, gender, dob, avatar, address, languages, password, activeDate);
+    public Traveler(String firstName, String lastName, String personalID, String email, String phoneNumber, Gender gender, LocalDate dob, String avatar, Address address, Languages languages, String password, LocalDateTime activeDate, String passport) {
+        super(firstName, lastName, personalID, email, phoneNumber, gender, dob, avatar, address, languages, password, activeDate);
         this.passport = passport;
     }
 }

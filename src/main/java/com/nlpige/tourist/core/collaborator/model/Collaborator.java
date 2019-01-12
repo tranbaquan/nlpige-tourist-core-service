@@ -16,11 +16,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class Collaborator extends Customer {
     private TourGuideType type;
-    private String phoneNumber;
 
-    public Collaborator(String firstName, String lastName, String personalID, String email, Gender gender, LocalDate dob, String avatar, Address address, Languages languages, String password, LocalDateTime activeDate, TourGuideType type, String phoneNumber) {
-        super(firstName, lastName, personalID, email, gender, dob, avatar, address, languages, password, activeDate);
+    public Collaborator(String firstName, String lastName, String personalID, String email, String phoneNumber, Gender gender, LocalDate dob, String avatar, Address address, Languages languages, String password, LocalDateTime activeDate, TourGuideType type) {
+        super(firstName, lastName, personalID, email, phoneNumber, gender, dob, avatar, address, languages, password, activeDate);
         this.type = type;
-        this.phoneNumber = phoneNumber;
     }
 }

@@ -15,7 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "tourregisteringrentity")
+@Document(collection = "registering_tour")
 public class TourRegisteringEntity {
     @DBRef
     private Tour tour;

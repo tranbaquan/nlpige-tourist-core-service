@@ -9,14 +9,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("report")
-public class ReportAPI {
+public class ReportApi {
     @Autowired
     ReportService reportService;
     @PostMapping
     public Report addReport(@RequestBody Report report){
         return reportService.addReport(report);
     }
-    @GetMapping("/reports")
+    @GetMapping
     public List<Report> getReports(@RequestHeader String senderEmail, @RequestHeader String reportedEmail) {
         return reportService.getReports(senderEmail, reportedEmail);
     }

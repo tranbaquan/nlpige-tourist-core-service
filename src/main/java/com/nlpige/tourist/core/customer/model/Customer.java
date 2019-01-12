@@ -7,7 +7,6 @@ import com.nlpige.tourist.utils.UserInformationVerifier;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -20,11 +19,11 @@ public abstract class Customer {
     protected String lastName;
     protected String personalID;
     protected String email;
+    protected String phoneNumber;
     protected Gender gender;
     protected LocalDate dob;
     protected String avatar;
     protected Address address;
-    @Field(value = "otherLanguages")
     protected Languages languages;
     protected String password;
     private LocalDateTime activeDate;

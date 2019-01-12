@@ -9,11 +9,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "place")
-public class PlaceAPI {
+public class PlaceApi {
     @Autowired
     PlaceService placeService;
 
-    @GetMapping("all")
+    @GetMapping
     public List<Place> getAllPlaces() {
         return placeService.getAllPlaces();
     }
@@ -23,8 +23,8 @@ public class PlaceAPI {
         return placeService.findPlaceWithName(name);
     }
 
-    @GetMapping("getwithsize")
-    public List<Place> gettingWithSize(@RequestHeader int offset, @RequestHeader int size){
+    @GetMapping("range")
+    public List<Place> gettingWithSize(@RequestParam int offset, @RequestParam int size) {
         return placeService.getPlaces(offset, size);
     }
 }
