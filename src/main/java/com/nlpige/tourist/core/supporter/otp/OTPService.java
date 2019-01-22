@@ -41,6 +41,8 @@ public class OTPService {
     }
 
     private boolean validateOTP(OTP systemOtp, String userOtp) {
+        System.out.println(systemOtp.getOtp());
+        System.out.println(userOtp);
         if(systemOtp == null) {
             throw new NLPigeException();
         }

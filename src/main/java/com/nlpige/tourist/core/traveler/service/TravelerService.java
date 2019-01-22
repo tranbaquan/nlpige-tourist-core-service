@@ -91,6 +91,7 @@ public class TravelerService {
     }
 
     public boolean validateOTP(OTP otp) {
+        System.out.println(otp);
         OTPVerifier.verifyOTP(otp);
         return otpService.isCorrectOTP(otp);
     }

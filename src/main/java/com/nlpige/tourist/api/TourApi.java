@@ -20,6 +20,11 @@ public class TourApi {
         return tourService.getAllTours();
     }
 
+    @PutMapping
+    public  Tour updateTour(@RequestBody Tour tour){
+        return tourService.updateTour(tour);
+    }
+
     @GetMapping(value = "waiting")
     public List<Tour> getWaitingTours() {
         return tourService.getWaitingTours();

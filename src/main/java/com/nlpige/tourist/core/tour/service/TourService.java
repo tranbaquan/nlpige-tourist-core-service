@@ -72,9 +72,6 @@ public class TourService {
     }
 
     public void deleteTour(String id) {
-        if (getTour(id).isAccepted()) {
-            throw new CannotDeleteTour();
-        }
         tourRepo.deleteById(id);
     }
 
@@ -125,5 +122,10 @@ public class TourService {
             return tours;
         }
         throw new NotFoundException();
+    }
+
+    public Tour updateTour(Tour tour) {
+        deleteTour(tour.getId());
+        return tourRepo.save(tour);
     }
 }

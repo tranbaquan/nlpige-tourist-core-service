@@ -36,9 +36,56 @@ public class DataMaster {
     public void init() {
         Languages languages = new Languages("English");
 
-        Traveler traveler1 = new Traveler(
+        Traveler traveler1 = new Traveler("Traveler Admin",
+                "",
+                "VN111111111",
+                "tranbaquan.tbq@gmail.com",
+                "+84111111111",
+                Gender.MALE, LocalDate.of(1997, 12, 13),
+                "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
+                new Address("Viet Nam", "Quan 1"),
+                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
+                LocalDateTime.of(2018, 12, 14, 17, 30),
+                "VN111111111");
+
+        Traveler traveler2 = new Traveler(
+                "Andrew", "Jon",
+                "US458496281",
+                "andrewjon@gmail.com",
+                "0123456789",
+                Gender.MALE, LocalDate.of(1988, 11, 11),
+                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997", new Address("America", "New York"),
+                languages,
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
+                LocalDateTime.of(2018, 12, 14, 17, 30),
+                "US458496281");
+        Traveler traveler3 = new Traveler("Matt",
+                "Mason",
+                "US671605156",
+                "mattmason@gmail.com",
+                "0123456789",
+                Gender.MALE,
+                LocalDate.of(1997, 12, 13),
+                "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
+                new Address("America", "California"),
+                languages,
+                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30),
+                "US671605156");
+        Traveler traveler4 = new Traveler("William",
+                "Tom",
+                "UK216787544",
+                "williamtom@gmail.com",
+                "0123456789",
+                Gender.MALE, LocalDate.of(1997, 12, 13),
+                "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
+                new Address("England", "London"),
+                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
+                LocalDateTime.of(2018, 12, 14, 17, 30),
+                "UK216787544");
+
+        Traveler traveler5 = new Traveler(
                 "Piper", "CJ",
-                "123456789",
+                "US123456789",
                 "pipercj@gmail.com",
                 "0123456789",
                 Gender.FEMALE, LocalDate.of(1990, 11, 22),
@@ -47,109 +94,20 @@ public class DataMaster {
                 languages,
                 "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 14, 17, 30),
-                "US1234567");
+                "US123456789");
 
-        Traveler traveler2 = new Traveler(
-                "Andrew", "Jon",
-                "123456788",
-                "andrew@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1988, 11, 11),
-                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546335256446_IMG_20190101_121448_611.jpg?alt=media&token=1c859ce9-5128-40fb-ab04-97088c2a4997", new Address("America", "New York"),
-                languages,
-                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
-                LocalDateTime.of(2018, 12, 14, 17, 30),
-                "US1234567");
-        Traveler traveler3 = new Traveler("Truong",
-                "Nguyen Ngoc Lam Bao",
-                "671605156",
-                "truong@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1997, 12, 13),
-                "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
-                new Address("Viet Nam", "Quan 1"),
-                languages,
-                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "VN4445222");
-        Traveler traveler4 = new Traveler("Hải",
-                "Trần Thanh",
-                "216787544",
-                "haitranit1997@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1997, 12, 13),
-                "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
-                new Address("Viet Nam", "Quan 1"),
-                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "VN4414044");
-        Traveler traveler5 = new Traveler("Quan",
-                "Trần Bá ",
-                "415007076",
-                "tranbaquan.tbq@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1997, 12, 13),
-                "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
-                new Address("Viet Nam", "Quan 1"),
-                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "VN6146154");
-        Traveler traveler6 = new Traveler("Thiên",
-                "Đinh Chí",
-                "167510743",
-                "chithien@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1997, 12, 13),
-                "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
-                new Address("Viet Nam", "Quan 1"),
-                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "VN1235014");
-        Traveler traveler7 = new Traveler("Jeremie",
-                "Belpois",
-                "257505163",
-                "jeremiebelpois@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1997, 12, 13),
-                "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
-                new Address("Viet Nam", "Quan 1"),
-                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "US3531012");
-        Traveler traveler8 = new Traveler("Aelita",
-                "Schaeffer",
-                "745576853",
-                "aelita@gmail.com",
-                "0123456789",
-                Gender.FEMALE, LocalDate.of(1997, 12, 13),
-                "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
-                new Address("Viet Nam", "Quan 1"),
-                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "US5504234");
-        Traveler traveler9 = new Traveler("Odd",
-                "Della Robbia",
-                "501412357",
-                "Della Robbia@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1997, 12, 13),
-                "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
-                new Address("Viet Nam", "Quan 1"),
-                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "US1502641");
-        Traveler traveler10 = new Traveler("Ulrich",
-                "Stern",
-                "674283615",
-                "Stern@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1997, 12, 13),
-                "https://scontent.fsgn8-1.fna.fbcdn.net/v/t1.0-9/48366070_2235179793369792_3474806285390577664_n.jpg?_nc_cat=108&_nc_ht=scontent.fsgn8-1.fna&oh=78563cc7d07a74799b7c118b251baffe&oe=5C8D920B",
-                new Address("Viet Nam", "Quan 1"),
-                languages, "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg", LocalDateTime.of(2018, 12, 14, 17, 30), "FR6000446");
         mongoOperations.save(traveler1);
         mongoOperations.save(traveler2);
         mongoOperations.save(traveler3);
         mongoOperations.save(traveler4);
         mongoOperations.save(traveler5);
-        mongoOperations.save(traveler6);
-        mongoOperations.save(traveler7);
-        mongoOperations.save(traveler8);
-        mongoOperations.save(traveler9);
-        mongoOperations.save(traveler10);
 
         Collaborator collaborator1 = new Collaborator(
-                "Quan", "Trần Bá",
+                "Collaborator Admin", "",
                 "231101668",
-                "tranbaquan1.tbq@gmail.com",
+                "15130148@st.hcmuaf.edu.vn",
                 "0123456789",
-                Gender.MALE, LocalDate.of(1997, 11, 02),
+                Gender.MALE, LocalDate.of(1997, 11, 2),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
@@ -162,103 +120,20 @@ public class DataMaster {
                 "123456785",
                 "dinhchithien@gmail.com",
                 "0123456789",
-                Gender.MALE, LocalDate.of(1997, 02, 02),
+                Gender.MALE, LocalDate.of(1997, 2, 2),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
                 "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
                 LocalDateTime.of(2018, 12, 19, 13, 0),
                 TourGuideType.PROFESSOR);
+
         Collaborator collaborator3 = new Collaborator(
-                "Yumi", "Ishiyama",
-                "123456785",
-                "dinhchithien@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1997, 02, 02),
-                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
-                new Address("Viet Nam", "Ho Chi Minh City"),
-                languages,
-                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
-                LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR);
-        Collaborator collaborator4 = new Collaborator(
-                "Bertolt", "Hoover",
-                "138470745",
-                "Hoover@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1997, 02, 02),
-                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
-                new Address("Viet Nam", "Ho Chi Minh City"),
-                languages,
-                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
-                LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR);
-        Collaborator collaborator5 = new Collaborator(
-                "Darius", "Zackly",
-                "384310460",
-                "Zackly@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1997, 02, 02),
-                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
-                new Address("Viet Nam", "Ho Chi Minh City"),
-                languages,
-                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
-                LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR);
-        Collaborator collaborator6 = new Collaborator(
-                "Reiner", "Braun",
-                "013621215",
-                "Braun@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1997, 02, 02),
-                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
-                new Address("Viet Nam", "Ho Chi Minh City"),
-                languages,
-                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
-                LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR);
-        Collaborator collaborator7 = new Collaborator(
-                "Armin", "Arlert",
-                "162834268",
-                "Arlert@gmail.com",
-                "0123456789",
-                Gender.FEMALE, LocalDate.of(1997, 02, 02),
-                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
-                new Address("Viet Nam", "Ho Chi Minh City"),
-                languages,
-                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
-                LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR);
-        Collaborator collaborator8 = new Collaborator(
-                "Mikasa", "Ackerman",
-                "123456785",
-                "Ackerman@gmail.com",
-                "0123456789",
-                Gender.FEMALE, LocalDate.of(1997, 02, 02),
-                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
-                new Address("Viet Nam", "Ho Chi Minh City"),
-                languages,
-                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
-                LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR);
-        Collaborator collaborator9 = new Collaborator(
-                "Eren ", "Yeager ",
-                "617443341",
-                "Yeager@gmail.com",
-                "0123456789",
-                Gender.MALE, LocalDate.of(1997, 02, 02),
-                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
-                new Address("Viet Nam", "Ho Chi Minh City"),
-                languages,
-                "$argon2id$v=19$m=65536,t=2,p=4$20xQun7wgcWB9ARGGrufUA$5OZbv8FtfiCgvc2nOvnEtexI0+q9yHTpcneP4LDmRJg",
-                LocalDateTime.of(2018, 12, 19, 13, 0),
-                TourGuideType.PROFESSOR);
-        Collaborator collaborator10 = new Collaborator(
-                "William", "Dunbar",
+                "Quan", "Trần Bá",
                 "768655363",
                 "admin@nltour.com",
                 "0123456789",
-                Gender.MALE, LocalDate.of(1997, 02, 02),
+                Gender.MALE, LocalDate.of(1997, 2, 2),
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/photos%2F1546770781827_PicsArt_01-04-01.34.13.png?alt=media&token=8a6439b2-f52c-41f0-b9d8-7a942ee210ac",
                 new Address("Viet Nam", "Ho Chi Minh City"),
                 languages,
@@ -270,13 +145,6 @@ public class DataMaster {
         mongoOperations.save(collaborator1);
         mongoOperations.save(collaborator2);
         mongoOperations.save(collaborator3);
-        mongoOperations.save(collaborator4);
-        mongoOperations.save(collaborator5);
-        mongoOperations.save(collaborator6);
-        mongoOperations.save(collaborator7);
-        mongoOperations.save(collaborator8);
-        mongoOperations.save(collaborator9);
-        mongoOperations.save(collaborator10);
 
         Address address = new Address("Viet Nam", "Ho Chi Minh city");
 
@@ -284,77 +152,64 @@ public class DataMaster {
         Place place1 = new Place(
                 "Ben Thanh Market",
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/places%2Fbtmk.jpg?alt=media&token=596e0289-b340-4f8f-8f05-723285c1180c",
-                "The Ben Thanh Traditional Market (Cho Ben Thanh) is the most famous shopping destination" +
-                        " in the city. This is not the cheapest market in the city but it has a good reputation, a" +
-                        " central location and a history. The market was first set up as an informal gathering of vendors" +
-                        " and was then organized by the French into a formal market in 1859. In 1870 a fire destroyed the" +
-                        " market and it was rebuilt. The whole market was moved in 1912 to the new building and renamed The" +
-                        " New Ben Thanh Market. The building received a facelift in 1985. Just outside the market is a hub" +
-                        " of public transport.",
+                "The Ben Thanh Traditional Market (Cho Ben Thanh) is the most famous shopping destination in the city. This is not the cheapest market in the city but it has a good reputation, a central location and a history. The market was first set up as an informal gathering of vendors and was then organized by the French into a formal market in 1859. In 1870 a fire destroyed the market and it was rebuilt. The whole market was moved in 1912 to the new building and renamed The New Ben Thanh Market. The building received a facelift in 1985. Just outside the market is a hub of public transport.",
                 address,
-                1000);
+                375);
         Place place2 = new Place(
-                "Dinh Doc Lap",
+                "Independence Palace (Dinh Độc Lập)",
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/places%2Fdinhdoclap.jpg?alt=media&token=51e3ea0d-c05c-4d7f-9ab7-0927bc966ec5",
-                "Dinh Độc Lập (tên gọi trước đây là dinh Norodom, ngày nay còn gọi là dinh Thống Nhất hay hội trường Thống Nhất) là một công trình kiến trúc, tòa nhà ở Thành ..",
+                "Independence Palace (Dinh Độc Lập), also known as Reunification Palace (Vietnamese: Dinh Thống Nhất), built on the site of the former Norodom Palace, is a landmark in Ho Chi Minh City, Vietnam. It was designed by architect Ngô Viết Thụ and was the home and workplace of the President of South Vietnam during the Vietnam War. It was the site of the end of the Vietnam War during the Fall of Saigon on 30 April 1975, when a North Vietnamese Army tank crashed through its gates.",
                 address,
-                1234
+                456
         );
         Place place3 = new Place(
-                "Nha Tho Duc Ba",
+                "Notre-Dame Cathedral Basilica of Saigon",
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/places%2Fntdd.jpg?alt=media&token=24b15b73-ce6f-4143-83ac-6792d4876fa4",
-                "Nhà thờ chính tòa Đức Bà Sài Gòn (tên chính thức: Vương cung thánh đường chính tòa Đức Mẹ Vô nhiễm Nguyên tội, tiếng Anh: Immaculate Conception ...",
+                "Notre-Dame Cathedral Basilica of Saigon is a cathedral located in the downtown of Ho Chi Minh City, Vietnam. Established by French colonists who initially named it Cathédrale Notre-Dame de Saïgon, the cathedral was constructed between 1863 and 1880. It has two bell towers, reaching a height of 58 meters (190 feet).",
                 address,
-                1234
+                456
         );
         Place place4 = new Place(
-                "Con Rua Lake",
+                "Turtle Lake",
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/places%2Fconrualake.jpg?alt=media&token=bb69421f-c488-4086-807d-9a14343edc0c",
-                "Hồ Con Rùa là tên gọi dân gian của một hồ phun nước nhân tạo nằm giữa nơi giao nhau của ba đường: Võ Văn Tần, Phạm Ngọc Thạch và Trần Cao Vân, ...",
+                "Located at the middle of Pham Ngoc Thach Street, Turtle Lake is a traffic roundabout of Pham Ngoc Thach Street with Tran Cao Van and Vo Van Tan Street. Turtle Lake attracts the tourists not only its location on the main street in the center of Saigon, but also its unique combination between Eastern and Western in architecture. Moreover, it was one of the symbols of this city that were built before 1975 and still stays nearly the same until today. The name Turtle Lake also causes a misunderstanding with visitors because actually there is no turtle at all. So, “Where is the turtle?”, “Why it called Turtle Lake?” or “Any turtles underwater?” are some very common questions which are usually asked by someone first came there.",
                 address,
-                1234
+                876
         );
         Place place5 = new Place(
-                "Pho Di Bo Nguyen Hue",
+                "Nguyen Hue Walking Street",
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/places%2Fpdd.jpg?alt=media&token=0c557e5f-fa29-4e36-aa97-524d8241247f",
-                "Tháng 4 năm 2015, chính quyền Thành phố Hồ Chí Minh khánh thành công trình quảng trường đi bộ Nguyễn Huệ với ...",
+                "Ho Chi Minh City is not known for being friendly to pedestrians. Motorbikes zip past each other at perilous speeds, and the traffic lights are mere suggestions. For this reason, Nguyen Hue Walking Street is a very special place. It might be the only street in the city where pedestrians always have the right of way.",
                 address,
-                1234
+                4646
         );
         Place place6 = new Place(
                 "The War Remnants Museum",
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/places%2Fbt.jpg?alt=media&token=e7604aee-5637-4039-a8b9-57de76f5d16b",
-                "Bảo tàng Chứng tích chiến tranh là một bảo tàng ở số 28 đường Võ Văn Tần, Quận 3, Thành ... Riêng pho tượng Phật được lưu giữ và sau chuyển vào Bảo tàng Blanchard de la Brosse ... Mạng Thông tin tích hợp trên Internet của TP HCM.",
+                "Operated by the Vietnamese government, an earlier version of this museum opened on September 4, 1975, as the Exhibition House for US and Puppet Crimes. It was located in the former United States Information Agency building. The exhibition was not the first of its kind for the North Vietnamese side, but rather followed a tradition of such exhibitions exposing war crimes, first those of the French and then those of the Americans, who had operated in the country as early as 1954.",
                 address,
-                1234
+                766
         );
         Place place7 = new Place(
                 "Cu Chi Tunnels",
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/places%2Fcc.jpg?alt=media&token=a2b215ab-c50d-403b-87f6-fdd97e1f90ac",
-                "The tunnels of Củ Chi are an immense network of connecting underground tunnels located in the Củ Chi District of Ho Chi Minh City (Saigon), Vietnam, and are ...",
+                "Built under fortified villages, where peasants had been forcibly moved, Cu Chi was a 200-kilometers-long mile network of passages with underground hospitals, meeting rooms, multi-level sleeping quarters, trap doors, smokeless kitchens, air raid shelters, weapons factories, strategy rooms and even entire underground villages with theaters and movie halls. In some places the tunnels had three stories.",
                 address,
                 1234
         );
         Place place8 = new Place(
-                "Bao Tang Y Hoc",
-                "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/places%2Fbtyh.jpg?alt=media&token=3a255b1e-fbc8-49a1-b747-be83b2819c98",
-                "Nơi đây rất bổ ích và tôi nghĩ là cần thiết đối với những ai học ngành y và với những ai muốn tìm hiểu về y cổ truyền . Nơi đây có rất nhiều hình ảnh cung cấp ...\n",
-                address,
-                1234
-        );
-        Place place9 = new Place(
                 "The Ho Chi Minh City Post Office",
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/places%2Fbd.jpg?alt=media&token=36505466-3393-4330-b1b6-8ee28b6dc9b9",
-                "Bưu điện trung tâm Sài Gòn là một trong những công trình kiến trúc tiêu biểu tại Thành phố Hồ Chí Minh, tọa lạc tại số 2, Công trường Công xã Paris, Quận 1.",
+                "The Central Post Office in Ho Chi Minh is a beautifully preserved remnant of French colonial times and perhaps the grandest post office in all of Southeast Asia. Located next door to Notre Dame Cathedral, the two cultural sites can be visited together and offers visitors a chance to imagine life in Vietnam during the times of the Indochinese Empire. The building was designed by Alfred Foulhoux and features arched windows and wooden shutters, just as it would have in its heyday in the late 19th Century.",
                 address,
-                1234
+                234
         );
-        Place place10 = new Place(
+        Place place9 = new Place(
                 "Municipal Theatre",
                 "https://firebasestorage.googleapis.com/v0/b/nltour-2018.appspot.com/o/places%2Fnh.jpg?alt=media&token=650b111c-2c69-41bd-a84b-e8677bc28ba6",
-                "The Municipal Theatre of Ho Chi Minh City, also known as Saigon Municipal Opera House is ... Nhà hát Lớn thành phố Hồ Chí Minh ...",
+                "The Municipal Theatre is a smaller counterpart of the Hanoi Opera House, which was built between 1901 and 1911, and shaped like the Opéra Garnier in Paris with 800 seats to entertain French colonists. The Municipal Theatre owes its specific characteristics to the work of architect Félix Olivier, while construction was under supervision of architects Ernest Guichard and Eugène Ferret in 1900.",
                 address,
-                1234
+                900
         );
 
 
@@ -367,178 +222,76 @@ public class DataMaster {
         mongoOperations.save(place7);
         mongoOperations.save(place8);
         mongoOperations.save(place9);
-        mongoOperations.save(place10);
 
         Tour tour1 = new Tour("tour1",
                 place1,
                 traveler1,
                 collaborator1,
-                LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true, false, "test"
+                LocalDateTime.of(2018, 12, 22, 9, 0),
+                190, true, true, "test"
         );
         Tour tour2 = new Tour("tour2",
                 place2,
-                traveler2,
+                traveler1,
                 collaborator2,
-                LocalDateTime.of(2018, 12, 22, 9, 00),
+                LocalDateTime.of(2019, 2, 22, 9, 0),
                 190, true, false, "test"
         );
         Tour tour3 = new Tour("tour3",
                 place3,
-                traveler3,
-                collaborator3,
-                LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true, true, "test"
+                traveler1,
+                null,
+                LocalDateTime.of(2019, 2, 1, 9, 0),
+                0, true, false, "test"
         );
         Tour tour4 = new Tour("tour4",
                 place4,
-                traveler4,
-                collaborator4,
-                LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true, true, "test"
+                traveler1,
+                null,
+                LocalDateTime.of(2019, 1, 24, 9, 0),
+                0, true, true, "test"
         );
         Tour tour5 = new Tour("tour5",
                 place5,
                 traveler5,
-                collaborator5,
-                LocalDateTime.of(2018, 12, 22, 9, 00),
+                null,
+                LocalDateTime.of(2019, 2, 2, 9, 0),
                 190, true, false, "test"
         );
         Tour tour6 = new Tour("tour6",
                 place6,
-                traveler6,
-                collaborator6,
-                LocalDateTime.of(2018, 12, 22, 9, 00),
+                traveler2,
+                collaborator1,
+                LocalDateTime.of(2019, 2, 3, 9, 0),
                 190, true, false, "test"
         );
         Tour tour7 = new Tour("tour7",
                 place7,
-                traveler7,
-                collaborator7,
-                LocalDateTime.of(2018, 12, 22, 9, 00),
+                traveler2,
+                collaborator2,
+                LocalDateTime.of(2018, 12, 22, 9, 0),
                 190, true, true, "test"
         );
         Tour tour8 = new Tour("tour8",
                 place8,
-                traveler8,
+                traveler3,
                 null,
-                LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true, false, "test"
+                LocalDateTime.of(2019, 1, 24, 9, 0),
+                0, true, false, "test"
         );
         Tour tour9 = new Tour("tour9",
                 place9,
-                traveler9,
-                collaborator9,
-                LocalDateTime.of(2018, 12, 22, 9, 00),
+                traveler3,
+                collaborator3,
+                LocalDateTime.of(2018, 12, 22, 9, 0),
                 190, true, true, "test"
         );
         Tour tour10 = new Tour("tour10",
-                place10,
-                traveler10,
-                null,
-                LocalDateTime.of(2018, 12, 22, 9, 00),
-                190, true, false, "test"
-        );
-
-        Tour tour11 = new Tour("tour11",
-                place1,
-                traveler5,
-                null,
-                LocalDateTime.now().plusDays(2),
-                190,
-                false,
-                false,
-                "Test tour"
-        );
-        Tour tour12 = new Tour("tour12",
-                place2,
-                traveler5,
-                null,
-                LocalDateTime.now().plusDays(5),
-                190,
-                false,
-                false,
-                "Test tour"
-        );
-        Tour tour13 = new Tour("tour12",
-                place3,
-                traveler5,
-                null,
-                LocalDateTime.now().plusDays(5),
-                190,
-                false,
-                false,
-                "Test tour"
-        );
-        Tour tour14 = new Tour("tour12",
-                place4,
-                traveler5,
-                null,
-                LocalDateTime.now().plusDays(5),
-                190,
-                false,
-                false,
-                "Test tour"
-        );
-        Tour tour15 = new Tour("tour12",
-                place5,
-                traveler5,
-                null,
-                LocalDateTime.now().plusDays(5),
-                190,
-                false,
-                false,
-                "Test tour"
-        );
-        Tour tour16 = new Tour("tour12",
-                place6,
-                traveler5,
-                null,
-                LocalDateTime.now().plusDays(5),
-                190,
-                false,
-                false,
-                "Test tour"
-        );
-        Tour tour17 = new Tour("tour12",
-                place7,
-                traveler5,
-                null,
-                LocalDateTime.now().plusDays(5),
-                190,
-                false,
-                false,
-                "Test tour"
-        );
-        Tour tour18 = new Tour("tour12",
-                place8,
-                traveler5,
-                null,
-                LocalDateTime.now().plusDays(5),
-                190,
-                false,
-                false,
-                "Test tour"
-        );
-        Tour tour19 = new Tour("tour12",
                 place9,
-                traveler5,
+                traveler4,
                 null,
-                LocalDateTime.now().plusDays(5),
-                190,
-                false,
-                false,
-                "Test tour"
-        );
-        Tour tour20 = new Tour("tour12",
-                place10,
-                traveler5,
-                null,
-                LocalDateTime.now().plusDays(5),
-                190,
-                false,
-                false,
-                "Test tour"
+                LocalDateTime.of(2019, 1, 24, 9, 0),
+                0, true, false, "test"
         );
 
         mongoOperations.save(tour1);
@@ -551,16 +304,6 @@ public class DataMaster {
         mongoOperations.save(tour8);
         mongoOperations.save(tour9);
         mongoOperations.save(tour10);
-        mongoOperations.save(tour11);
-        mongoOperations.save(tour12);
-        mongoOperations.save(tour13);
-        mongoOperations.save(tour14);
-        mongoOperations.save(tour15);
-        mongoOperations.save(tour16);
-        mongoOperations.save(tour17);
-        mongoOperations.save(tour18);
-        mongoOperations.save(tour19);
-        mongoOperations.save(tour20);
 
         Price price1 = new Price(TourGuideType.RESIDENT, 300);
         Price price2 = new Price(TourGuideType.STUDENT, 250);
@@ -572,11 +315,11 @@ public class DataMaster {
         mongoOperations.save(price3);
         mongoOperations.save(price4);
 
-        TourRegisteringEntity entity1 = new TourRegisteringEntity(tour15, collaborator10);
-        TourRegisteringEntity entity2 = new TourRegisteringEntity(tour16, collaborator10);
-        TourRegisteringEntity entity3 = new TourRegisteringEntity(tour17, collaborator10);
-        TourRegisteringEntity entity4 = new TourRegisteringEntity(tour18, collaborator10);
-        TourRegisteringEntity entity5 = new TourRegisteringEntity(tour20, collaborator10);
+        TourRegisteringEntity entity1 = new TourRegisteringEntity(tour3, collaborator1);
+        TourRegisteringEntity entity2 = new TourRegisteringEntity(tour3, collaborator2);
+        TourRegisteringEntity entity3 = new TourRegisteringEntity(tour3, collaborator3);
+        TourRegisteringEntity entity4 = new TourRegisteringEntity(tour4, collaborator1);
+        TourRegisteringEntity entity5 = new TourRegisteringEntity(tour4, collaborator2);
 
         mongoOperations.save(entity1);
         mongoOperations.save(entity2);
@@ -584,5 +327,4 @@ public class DataMaster {
         mongoOperations.save(entity4);
         mongoOperations.save(entity5);
     }
-    // TODO Add more data master. Upload image to firebase
 }
